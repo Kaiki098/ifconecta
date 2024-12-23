@@ -1,0 +1,15 @@
+.page {
+    background-color: black;
+    min-height: 100svh;
+    padding: 100px;
+}
+
+.card {
+    background-color: gray;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.card h1 {
+    color: white;
+}
