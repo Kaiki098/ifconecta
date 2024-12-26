@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    align-items: center;
+    background-color: var(--grey-700);
+    color: var(--white-900);
+    padding: 0.5em;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    gap: 0.625em;
+    text-transform: uppercase;
+    border: none;
+}

@@ -9,9 +9,7 @@ export default function Home() {
         <li>Sobre</li>
         <li>Como funciona</li>
       </ul>
-      <Link href="/login">
-        Login
-      </Link>
+      <Link href="/login">Login</Link>
     </nav>
   );
 }
