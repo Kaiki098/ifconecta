@@ -23,10 +23,6 @@ export default function Login() {
 
   const router = useRouter();
 
-  function handleHomeClick() {
-    router.back();
-  }
-
   function handleLogin(data: InputData) {
     if (data.username == "admin" && data.password == "1234") {
       router.push("/projects");
@@ -64,7 +60,7 @@ export default function Login() {
           height={60}
           quality={100}
         />
-        <HomeButton onClick={handleHomeClick} />
+        <HomeButton />
       </nav>
       <div className={styles.container}>
         <h1>IFConecta</h1>
