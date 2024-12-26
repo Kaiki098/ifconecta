@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./page.module.css";
 import Image from "next/image";
-import { HomeButton } from "../components/IconButton/IconButton";
+import { HomeButton } from "../components/HomeButton/HomeButton";
 import { useRouter } from "next/navigation";
 import { VisibilityInput } from "../components/VisibilityInput/VisibilityInput";
 import { Bounce, toast, ToastContainer } from "react-toastify";
