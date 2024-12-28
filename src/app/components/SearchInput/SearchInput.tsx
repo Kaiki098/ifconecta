@@ -1,11 +1,10 @@
-import { ChevronRight } from "lucide-react";
-import styles from "./style.module.css";
+import { ChevronRight, InputContainer } from "./styles";
 
 export default function SearchInput() {
   return (
-    <div className={styles.inputContainer}>
+    <InputContainer>
       <input type="search" />
-      <ChevronRight className={styles.chevron} />
-    </div>
+      <ChevronRight />
+    </InputContainer>
   );
 }

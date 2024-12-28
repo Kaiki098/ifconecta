@@ -1,12 +1,27 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import styles from "./page.module.css";
 import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
 import { useRouter } from "next/navigation";
 import { VisibilityInput } from "../components/VisibilityInput/VisibilityInput";
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import {
+  Button,
+  Card,
+  CardText,
+  CardTitle,
+  Container,
+  Field,
+  Fieldset,
+  Header,
+  Input,
+  Label,
+  Nav,
+  Page,
+  Title1,
+  Title2,
+} from "./styles";
 
 interface InputData {
   username: string;
@@ -20,6 +35,7 @@ export default function Login() {
     setError,
     formState: { errors },
   } = useForm<InputData>();
+  // TODO Tem algum problema com essa prop error
 
   const router = useRouter();
 
@@ -36,9 +52,8 @@ export default function Login() {
   if (errors.password) console.log("Erro na password");
 
   return (
-    <div className={styles.page}>
+    <Page>
       <ToastContainer
-        className={styles.toast}
         position="top-center"
         autoClose={5000}
         limit={3}
@@ -52,8 +67,8 @@ export default function Login() {
         theme="dark"
         transition={Bounce}
       />
-      <header className={styles.header}>
-        <nav className={styles.nav}>
+      <Header>
+        <Nav>
           <Image
             src="/images/logo.svg"
             alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
@@ -62,40 +77,36 @@ export default function Login() {
             quality={100}
           />
           <HomeButton />
-        </nav>
-      </header>
-      <main className={styles.container}>
-        <h1>IFConecta</h1>
-        <h2>IFSULDEMINAS</h2>
-        <section className={styles.card}>
-          <h3>Login</h3>
-          <p>para professores</p>
+        </Nav>
+      </Header>
+      <Container>
+        <Title1>IFConecta</Title1>
+        <Title2>IFSULDEMINAS</Title2>
+        <Card>
+          <CardTitle>Login</CardTitle>
+          <CardText>para professores</CardText>
           <form onSubmit={handleSubmit(handleLogin)}>
-            <fieldset className={styles.fieldset}>
-              <div className={styles.field}>
-                <label htmlFor="username">Usuário:</label>
-                <input
+            <Fieldset>
+              <Field>
+                <Label htmlFor="username">Usuário:</Label>
+                <Input
                   type="text"
                   {...register("username")}
-                  className={
-                    errors.username ? styles.errorInput : styles.borderlessInput
-                  }
+                  error={!!errors.username}
                 />
-              </div>
-              <div className={styles.field}>
-                <label htmlFor="password">Senha</label>
+              </Field>
+              <Field>
+                <Label htmlFor="password">Senha</Label>
                 <VisibilityInput
                   {...register("password")}
-                  className={
-                    errors.password ? styles.errorInput : styles.borderlessInput
-                  }
+                  error={!!errors.password}
                 />
-              </div>
-              <button type="submit">Continuar</button>
-            </fieldset>
+              </Field>
+              <Button type="submit">Continuar</Button>
+            </Fieldset>
           </form>
-        </section>
-      </main>
-    </div>
+        </Card>
+      </Container>
+    </Page>
   );
 }

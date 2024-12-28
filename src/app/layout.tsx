@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import "./globals.css";
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-});
+import StyledComponentsRegistry from "@/lib/registry";
+import ClientLayout from "@/lib/client-layout";
 
 export const metadata: Metadata = {
   title: "IFConecta",
@@ -19,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={openSans.variable}>{children}</body>
+      <body>
+        <StyledComponentsRegistry>
+          <ClientLayout>{children}</ClientLayout>
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }

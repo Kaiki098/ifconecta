@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import SearchInput from "../components/SearchInput/SearchInput";
-import styles from "./page.module.css";
+import { BgImage, ProjectsContainer, TopBar } from "./styles";
 
 export default function ProjectsPage() {
   const projectsMock = [
@@ -74,22 +73,26 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <header className={styles.topBar}>
-        <SearchInput />
-        <HomeButton />
+      <header>
+        <TopBar>
+          <SearchInput />
+          <HomeButton />
+        </TopBar>
       </header>
-      <main className={styles.projectsContainer}>
-        <Image
-          src="/images/logoIFBG.png"
-          alt="Logo IFSULDEMINAS"
-          width={258}
-          height={237}
-          quality={100}
-          className={styles.bgImage}
-        />
-        {projectsMock.map((project) => {
-          return <ProjectCard key={project.id} project={project} />;
-        })}
+      <main>
+        <ProjectsContainer>
+          <BgImage
+            src="/images/logoIFBG.png"
+            alt="Logo IFSULDEMINAS"
+            width={258}
+            height={237}
+            quality={100}
+          />
+
+          {projectsMock.map((project) => {
+            return <ProjectCard key={project.id} project={project} />;
+          })}
+        </ProjectsContainer>
       </main>
     </>
   );

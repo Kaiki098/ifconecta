@@ -1,24 +1,24 @@
-import { Eye, EyeClosed } from "lucide-react";
 import { InputHTMLAttributes, useState } from "react";
-import styles from "./style.module.css";
+import { InputWrapper, Input, EyeIcon, EyeClosedIcon } from "./styles";
 
-export function VisibilityInput({
-  ...props
-}: InputHTMLAttributes<HTMLInputElement>) {
+interface VisibilityInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  error?: boolean;
+}
+
+export function VisibilityInput({ error, ...props }: VisibilityInputProps) {
   const [showText, setShowText] = useState(false);
 
   function handleClick() {
     setShowText((showText) => !showText);
   }
-
   return (
-    <div className={styles.inputWrapper}>
-      <input type={showText ? "text" : "password"} {...props} />
+    <InputWrapper>
+      <Input type={showText ? "text" : "password"} error={error} {...props} />
       {showText ? (
-        <Eye className={styles.icon} onClick={handleClick} />
+        <EyeIcon onClick={handleClick} />
       ) : (
-        <EyeClosed className={styles.icon} onClick={handleClick} />
+        <EyeClosedIcon onClick={handleClick} />
       )}
-    </div>
+    </InputWrapper>
   );
 }

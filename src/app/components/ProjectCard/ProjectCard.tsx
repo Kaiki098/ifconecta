@@ -2,9 +2,23 @@
 
 import { useState } from "react";
 import { Group } from "@mui/icons-material";
-import styles from "./style.module.css";
-import { Building2, Minus, Plus, Phone, Mail, Copy } from "lucide-react";
-import ThematicAreaIcon from "../ThematicAreaIcon/ThematicAreaIcon";
+import { Building2 } from "lucide-react";
+import {
+  Card,
+  Header,
+  Body,
+  BeneficiaryInfo,
+  Contact,
+  Footer,
+  Button,
+  GroupInfo,
+  ThematicAreaIcon,
+  MinusIcon,
+  PlusIcon,
+  PhoneIcon,
+  MailIcon,
+  CopyIcon,
+} from "./styles";
 
 interface ProjectCardProps {
   project: {
@@ -37,6 +51,8 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  console.log(name, email, phone, onlyWhatsapp);
+
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
@@ -44,23 +60,21 @@ export default function ProjectCard({
   const typeIcon = type === "Empresa" ? <Building2 /> : <Group />;
 
   return (
-    <article className={styles.card}>
-      <header className={styles.header}>
-        <ThematicAreaIcon thematicArea={thematicArea} />
-        <span>
+    <Card>
+      <Header>
+        <ThematicAreaIcon>{thematicArea}</ThematicAreaIcon>
+        <GroupInfo>
           {typeIcon}
           {isExpanded ? type : ""}
-        </span>
-      </header>
-      <section className={styles.body}>
+        </GroupInfo>
+      </Header>
+      <Body>
         <h2>
           <strong>{tittle}</strong>
         </h2>
-        <p className={!isExpanded ? styles.overflowHidden : ""}>
-          {description}
-        </p>
+        <p>{description}</p>
         {isExpanded && (
-          <section className={styles.beneficiaryInfo}>
+          <BeneficiaryInfo>
             <h3>
               <strong>Informações do beneficiário: </strong>
             </h3>
@@ -70,35 +84,34 @@ export default function ProjectCard({
             <h4>
               <strong>Contato: </strong>
             </h4>
-            <address className={styles.contact}>
+            <Contact>
               <p>
-                <Phone className={styles.contactIcon} /> {phone}{" "}
-                <Copy className={styles.copyIcon} />
+                <PhoneIcon /> {phone} <CopyIcon />
                 {onlyWhatsapp && "(Apenas Whatsapp)"}
               </p>
               <p>
-                <Mail className={styles.contactIcon} /> {email}
-                <Copy className={styles.copyIcon} />
+                <MailIcon /> {email}
+                <CopyIcon />
               </p>
-            </address>
-          </section>
+            </Contact>
+          </BeneficiaryInfo>
         )}
-      </section>
-      <footer className={styles.footer}>
-        <button className={styles.button} onClick={toggleExpand}>
+      </Body>
+      <Footer>
+        <Button onClick={toggleExpand}>
           {isExpanded ? (
             <>
               Ver menos
-              <Minus />
+              <MinusIcon />
             </>
           ) : (
             <>
               Ver mais
-              <Plus className={styles.buttonIcon} />
+              <PlusIcon />
             </>
           )}
-        </button>
-      </footer>
-    </article>
+        </Button>
+      </Footer>
+    </Card>
   );
 }

@@ -1,15 +1,19 @@
-import Link from "next/link";
-import styles from "./page.module.css";
+"use client";
+
+import React from "react";
+import { Nav, NavList, NavLink } from "./home";
 
 export default function Home() {
   return (
-    <nav className={styles.nav}>
-      <ul>
-        <li>Apresentação</li>
-        <li>Sobre</li>
-        <li>Como funciona</li>
-      </ul>
-      <Link href="/login">Login</Link>
-    </nav>
+    <>
+      <Nav>
+        <NavList>
+          <li>Apresentação</li>
+          <li>Sobre</li>
+          <li>Como funciona</li>
+        </NavList>
+        <NavLink href="/login">Login</NavLink>
+      </Nav>
+    </>
   );
 }
