@@ -52,46 +52,50 @@ export default function Login() {
         theme="dark"
         transition={Bounce}
       />
-      <nav>
-        <Image
-          src="/images/logo.svg"
-          alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
-          width={140}
-          height={60}
-          quality={100}
-        />
-        <HomeButton />
-      </nav>
-      <div className={styles.container}>
+      <header className={styles.header}>
+        <nav className={styles.nav}>
+          <Image
+            src="/images/logo.svg"
+            alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
+            width={140}
+            height={60}
+            quality={100}
+          />
+          <HomeButton />
+        </nav>
+      </header>
+      <main className={styles.container}>
         <h1>IFConecta</h1>
         <h2>IFSULDEMINAS</h2>
-        <div className={styles.card}>
+        <section className={styles.card}>
           <h3>Login</h3>
           <p>para professores</p>
           <form onSubmit={handleSubmit(handleLogin)}>
-            <div className={styles.field}>
-              <label htmlFor="username">Usuário:</label>
-              <input
-                type="text"
-                {...register("username")}
-                className={
-                  errors.username ? styles.errorInput : styles.borderlessInput
-                }
-              />
-            </div>
-            <div className={styles.field}>
-              <label htmlFor="password">Senha</label>
-              <VisibilityInput
-                {...register("password")}
-                className={
-                  errors.password ? styles.errorInput : styles.borderlessInput
-                }
-              />
-            </div>
-            <button type="submit">Continuar</button>
+            <fieldset className={styles.fieldset}>
+              <div className={styles.field}>
+                <label htmlFor="username">Usuário:</label>
+                <input
+                  type="text"
+                  {...register("username")}
+                  className={
+                    errors.username ? styles.errorInput : styles.borderlessInput
+                  }
+                />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="password">Senha</label>
+                <VisibilityInput
+                  {...register("password")}
+                  className={
+                    errors.password ? styles.errorInput : styles.borderlessInput
+                  }
+                />
+              </div>
+              <button type="submit">Continuar</button>
+            </fieldset>
           </form>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }
