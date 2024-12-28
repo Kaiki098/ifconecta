@@ -74,23 +74,23 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <div className={styles.topBar}>
+      <header className={styles.topBar}>
         <SearchInput />
         <HomeButton />
-      </div>
-      <Image
-        src="/images/logoIFBG.png"
-        alt="Logo IFSULDEMINAS"
-        width={258}
-        height={237}
-        quality={100}
-        className={styles.bgImage}
-      />
-      <div className={styles.projectsContainer}>
+      </header>
+      <main className={styles.projectsContainer}>
+        <Image
+          src="/images/logoIFBG.png"
+          alt="Logo IFSULDEMINAS"
+          width={258}
+          height={237}
+          quality={100}
+          className={styles.bgImage}
+        />
         {projectsMock.map((project) => {
           return <ProjectCard key={project.id} project={project} />;
         })}
-      </div>
+      </main>
     </>
   );
 }
