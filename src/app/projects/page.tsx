@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import SearchInput from "../components/SearchInput/SearchInput";
 import { BgImage, ProjectsContainer, TopBar } from "./styles";
+import { ResponsiveContent } from "../styles/globals";
 
 export default function ProjectsPage() {
   const projectsMock = [
@@ -75,6 +77,10 @@ export default function ProjectsPage() {
     <>
       <header>
         <TopBar>
+          <ResponsiveContent $hideOnMobile>
+            <Image src="/image/logo.svg" alt="logo" width={205} height={90} />
+            <h1>Projetos Cadastrados</h1>
+          </ResponsiveContent>
           <SearchInput />
           <HomeButton />
         </TopBar>

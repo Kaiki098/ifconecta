@@ -1,109 +1,62 @@
-"use client";
-
-import { useForm } from "react-hook-form";
 import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
-import { useRouter } from "next/navigation";
-import { VisibilityInput } from "../components/VisibilityInput/VisibilityInput";
-import { Bounce, toast, ToastContainer } from "react-toastify";
 import {
-  Button,
   Card,
   CardText,
   CardTitle,
   Container,
-  Field,
-  Fieldset,
   Header,
-  Input,
-  Label,
+  LoginIntro,
   Nav,
   Page,
   Title1,
   Title2,
 } from "./styles";
-
-interface InputData {
-  username: string;
-  password: string;
-}
+import { LoginForm } from "../components/LoginForm/LoginForm";
+import { ResponsiveContent } from "../styles/globals";
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm<InputData>();
-
-  const router = useRouter();
-
-  function handleLogin(data: InputData) {
-    if (data.username == "admin" && data.password == "1234") {
-      router.push("/projects");
-    } else {
-      setError("username", {});
-      setError("password", {});
-      toast.error("Nome de usuário ou senha incorretos.");
-    }
-  }
-
-  if (errors.password) console.log("Erro na password");
-
   return (
     <Page>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        limit={3}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
       <Header>
         <Nav>
-          <Image
-            src="/images/logo.svg"
-            alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
-            width={140}
-            height={60}
-            quality={100}
-          />
+          <ResponsiveContent $hideOnDesktop>
+            <Image
+              src="/images/logo.svg"
+              alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
+              width={140}
+              height={60}
+              quality={100}
+            />
+          </ResponsiveContent>
           <HomeButton />
         </Nav>
       </Header>
       <Container>
-        <Title1>IFConecta</Title1>
-        <Title2>IFSULDEMINAS</Title2>
+        <ResponsiveContent $hideOnMobile>
+          <LoginIntro>
+            <h1> Conecte-se</h1>
+            <p>
+              Caso seja um professor da instituição, preencha com suas
+              credencias para ter acesso aos projetos enviados.
+            </p>
+            <Image
+              src="/images/logoBig.svg"
+              alt="Logo"
+              width={500}
+              height={500}
+            />
+          </LoginIntro>
+        </ResponsiveContent>
+
+        <ResponsiveContent $hideOnDesktop>
+          <Title1>IFConecta</Title1>
+          <Title2>IFSULDEMINAS</Title2>
+        </ResponsiveContent>
         <Card>
           <CardTitle>Login</CardTitle>
           <CardText>para professores</CardText>
-          <form onSubmit={handleSubmit(handleLogin)}>
-            <Fieldset>
-              <Field>
-                <Label htmlFor="username">Usuário:</Label>
-                <Input
-                  type="text"
-                  {...register("username")}
-                  $error={!!errors.username}
-                />
-              </Field>
-              <Field>
-                <Label htmlFor="password">Senha</Label>
-                <VisibilityInput
-                  {...register("password")}
-                  $error={!!errors.password}
-                />
-              </Field>
-              <Button type="submit">Continuar</Button>
-            </Fieldset>
-          </form>
+          <LoginForm />
         </Card>
       </Container>
     </Page>

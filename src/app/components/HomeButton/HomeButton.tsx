@@ -1,12 +1,10 @@
 "use client";
 
-import { House } from "lucide-react";
 import { ButtonHTMLAttributes } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "./styles";
+import { Button, HouseIcon } from "./styles";
 
 export const HomeButton = ({
-  children,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement>) => {
   const router = useRouter();
@@ -20,8 +18,8 @@ export const HomeButton = ({
       {...props}
       onClick={props.onClick ? props.onClick : handleHomeClick}
     >
-      <House />
-      {children}
+      <HouseIcon />
+      <span>Voltar</span>
     </Button>
   );
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 const Page = styled.div`
@@ -21,11 +23,24 @@ const Nav = styled.nav`
   width: 100%;
   justify-content: space-between;
   padding: 1em;
+
+  @media (min-width: 1024px) {
+    right: 0;
+    width: fit-content;
+    padding: 4em;
+  }
 `;
 
 const Container = styled.main`
   position: absolute;
   margin: auto;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
 `;
 
 const Title1 = styled.h1`
@@ -44,11 +59,17 @@ const Title2 = styled.h2`
 const Card = styled.section`
   background-color: ${({ theme }) => theme.colors.green700};
   width: fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2em 1.75em;
   border-radius: 16px;
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    padding: 2.8em 2.5em;
+  }
 `;
 
 const CardTitle = styled.h3`
@@ -56,58 +77,53 @@ const CardTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+
+    &::before {
+      content: "•";
+      margin-right: 0.25em;
+      color: ${({ theme }) => theme.colors.white900};
+    }
+  }
 `;
 
 const CardText = styled.p`
   color: ${({ theme }) => theme.colors.white900};
   margin-bottom: 1em;
-`;
 
-const Field = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.5em;
-`;
-
-const Label = styled.label`
-  color: ${({ theme }) => theme.colors.white900};
-  font-size: 0.875rem;
-  font-weight: 700;
-`;
-
-interface InputProps {
-  $error?: boolean;
-}
-
-const Input = styled.input<InputProps>`
-  border-radius: 8px;
-  height: 2.5em;
-  width: 14em;
-  padding: 0.75em;
-  border: 2px solid ${({ $error }) => ($error ? "red" : "transparent")};
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.green300};
-    outline: none;
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 `;
 
-const Fieldset = styled.fieldset`
+export const LoginIntro = styled.section`
   display: flex;
   flex-direction: column;
-  border: none;
-`;
+  align-items: flex-start;
+  gap: 4em;
+  border-left: 8px solid ${({ theme }) => theme.colors.green300};
+  padding: 4em;
+  max-height: fit-content;
+  max-width: 70ch;
 
-const Button = styled.button`
-  text-transform: uppercase;
-  padding: 0.5em 1.5em;
-  background-color: ${({ theme }) => theme.colors.black800};
-  color: ${({ theme }) => theme.colors.white900};
-  border: none;
-  border-radius: 8px;
-  font-weight: 800;
-  width: fit-content;
-  margin: 1.5em auto 0.5em auto;
+  h1 {
+    color: ${({ theme }) => theme.colors.green300};
+    font-size: 3rem;
+    font-weight: 800;
+
+    &::before {
+      content: "•";
+      margin-right: 0.25em;
+      color: ${({ theme }) => theme.colors.green300};
+    }
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.white900};
+    font-size: 1.5rem;
+  }
 `;
 
 export {
@@ -120,9 +136,4 @@ export {
   Card,
   CardTitle,
   CardText,
-  Field,
-  Label,
-  Input,
-  Fieldset,
-  Button,
 };
