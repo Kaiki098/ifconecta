@@ -35,7 +35,6 @@ export default function Login() {
     setError,
     formState: { errors },
   } = useForm<InputData>();
-  // TODO Tem algum problema com essa prop error
 
   const router = useRouter();
 
