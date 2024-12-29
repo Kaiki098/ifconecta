@@ -14,10 +14,26 @@ import {
 } from "./styles";
 import { LoginForm } from "../components/LoginForm/LoginForm";
 import { ResponsiveContent } from "../styles/globals";
+import { Bounce, ToastContainer } from "react-toastify";
 
 export default function Login() {
   return (
     <Page>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        limit={3}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
+
       <Header>
         <Nav>
           <ResponsiveContent $hideOnDesktop>
@@ -32,6 +48,7 @@ export default function Login() {
           <HomeButton />
         </Nav>
       </Header>
+
       <Container>
         <ResponsiveContent $hideOnMobile>
           <LoginIntro>
@@ -42,7 +59,7 @@ export default function Login() {
             </p>
             <Image
               src="/images/logoBig.svg"
-              alt="Logo"
+              alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
               width={500}
               height={500}
             />
@@ -53,6 +70,7 @@ export default function Login() {
           <Title1>IFConecta</Title1>
           <Title2>IFSULDEMINAS</Title2>
         </ResponsiveContent>
+
         <Card>
           <CardTitle>Login</CardTitle>
           <CardText>para professores</CardText>

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-const Page = styled.div`
+export const Page = styled.div`
   background-color: ${({ theme }) => theme.colors.black800};
   min-height: 100svh;
   display: flex;
@@ -11,11 +11,11 @@ const Page = styled.div`
   align-items: center;
 `;
 
-const Header = styled.header`
+export const Header = styled.header`
   width: 100%;
 `;
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   position: absolute;
   top: 0;
   display: flex;
@@ -31,32 +31,32 @@ const Nav = styled.nav`
   }
 `;
 
-const Container = styled.main`
+export const Container = styled.main`
   position: absolute;
   margin: auto;
 
   @media (min-width: 1024px) {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
   }
 `;
 
-const Title1 = styled.h1`
+export const Title1 = styled.h1`
   color: ${({ theme }) => theme.colors.green300};
   font-size: 2rem;
   font-weight: 800;
 `;
 
-const Title2 = styled.h2`
+export const Title2 = styled.h2`
   color: ${({ theme }) => theme.colors.white900};
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 1em;
 `;
 
-const Card = styled.section`
+export const Card = styled.section`
   background-color: ${({ theme }) => theme.colors.green700};
   width: fit-content;
   height: fit-content;
@@ -72,7 +72,7 @@ const Card = styled.section`
   }
 `;
 
-const CardTitle = styled.h3`
+export const CardTitle = styled.h3`
   color: ${({ theme }) => theme.colors.white900};
   font-size: 1.5rem;
   font-weight: 600;
@@ -89,7 +89,7 @@ const CardTitle = styled.h3`
   }
 `;
 
-const CardText = styled.p`
+export const CardText = styled.p`
   color: ${({ theme }) => theme.colors.white900};
   margin-bottom: 1em;
 
@@ -125,15 +125,3 @@ export const LoginIntro = styled.section`
     font-size: 1.5rem;
   }
 `;
-
-export {
-  Page,
-  Header,
-  Nav,
-  Container,
-  Title1,
-  Title2,
-  Card,
-  CardTitle,
-  CardText,
-};
