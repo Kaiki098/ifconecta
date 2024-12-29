@@ -2,10 +2,10 @@ import { InputHTMLAttributes, useState } from "react";
 import { InputWrapper, Input, EyeIcon, EyeClosedIcon } from "./styles";
 
 interface VisibilityInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: boolean;
+  $error: boolean;
 }
 
-export function VisibilityInput({ error, ...props }: VisibilityInputProps) {
+export function VisibilityInput({ ...props }: VisibilityInputProps) {
   const [showText, setShowText] = useState(false);
 
   function handleClick() {
@@ -13,7 +13,7 @@ export function VisibilityInput({ error, ...props }: VisibilityInputProps) {
   }
   return (
     <InputWrapper>
-      <Input type={showText ? "text" : "password"} error={error} {...props} />
+      <Input type={showText ? "text" : "password"} {...props} />
       {showText ? (
         <EyeIcon onClick={handleClick} />
       ) : (

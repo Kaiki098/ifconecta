@@ -76,7 +76,7 @@ const Label = styled.label`
 `;
 
 interface InputProps {
-  error?: boolean;
+  $error?: boolean;
 }
 
 const Input = styled.input<InputProps>`
@@ -84,7 +84,7 @@ const Input = styled.input<InputProps>`
   height: 2.5em;
   width: 14em;
   padding: 0.75em;
-  border: 2px solid ${({ error }) => (error ? "red" : "transparent")};
+  border: 2px solid ${({ $error }) => ($error ? "red" : "transparent")};
 
   &:focus {
     border-color: ${({ theme }) => theme.colors.green300};

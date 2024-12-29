@@ -92,14 +92,14 @@ export default function Login() {
                 <Input
                   type="text"
                   {...register("username")}
-                  error={!!errors.username}
+                  $error={!!errors.username}
                 />
               </Field>
               <Field>
                 <Label htmlFor="password">Senha</Label>
                 <VisibilityInput
                   {...register("password")}
-                  error={!!errors.password}
+                  $error={!!errors.password}
                 />
               </Field>
               <Button type="submit">Continuar</Button>
