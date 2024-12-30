@@ -110,6 +110,7 @@ export const FiltersPanel = styled.div<FiltersPanelProps>`
   padding: 1em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: -moz-available;
+  width: -webkit-fill-available;
   z-index: -1;
   border-radius: ${({ $isVisible }) => ($isVisible ? "0 0 24px 24px" : "24px")};
 
