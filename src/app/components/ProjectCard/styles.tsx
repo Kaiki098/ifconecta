@@ -1,5 +1,5 @@
 import { Copy, Mail, Minus, Phone, Plus } from "lucide-react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Card = styled.article`
   padding: 1em;
@@ -10,7 +10,11 @@ export const Card = styled.article`
   border: 4px solid rgba(0, 0, 0, 0.05);
   background: ${({ theme }) => theme.colors.white900};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 0 1em;
+  height: fit-content;
+
+  @media (min-width: 1024px) {
+    max-width: 440px;
+  }
 `;
 
 export const Header = styled.header`
@@ -49,29 +53,39 @@ export const Body = styled.section`
   & h2 {
     font-size: 0.875rem;
   }
-
-  & p {
-    font-size: 0.75rem;
-  }
 `;
 
-export const OverflowHidden = styled.p`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  line-clamp: 3;
-  box-orient: vertical;
+interface DescriptionProps {
+  $isExpanded?: boolean;
+}
+
+export const Description = styled.p<DescriptionProps>`
+  font-size: 0.75rem;
+  ${({ $isExpanded }) =>
+    $isExpanded
+      ? ""
+      : css`
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          line-clamp: 3;
+          box-orient: vertical;
+        `}
 `;
 
 export const BeneficiaryInfo = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 1em;
 
   & h3 {
     font-size: 0.875rem;
+    margin-bottom: 1em;
+  }
+
+  & h4 {
+    margin-bottom: 0.5em;
   }
 
   & p {
@@ -83,6 +97,7 @@ export const BeneficiaryInfo = styled.section`
 
   & > p:first-of-type {
     gap: 0.5em;
+    margin-bottom: 1em;
   }
 
   & p strong {

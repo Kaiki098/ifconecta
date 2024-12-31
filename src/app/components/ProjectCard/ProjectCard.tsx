@@ -18,6 +18,7 @@ import {
   PhoneIcon,
   MailIcon,
   CopyIcon,
+  Description,
 } from "./styles";
 
 interface ProjectCardProps {
@@ -72,7 +73,7 @@ export default function ProjectCard({
         <h2>
           <strong>{tittle}</strong>
         </h2>
-        <p>{description}</p>
+        <Description $isExpanded={isExpanded}>{description}</Description>
         {isExpanded && (
           <BeneficiaryInfo>
             <h3>
