@@ -15,5 +15,22 @@ export const theme: DefaultTheme = {
     family: {
       default: "Open sans, sans-serif",
     },
+    sizes: {
+      small: "0.875rem",
+      normal: "1rem",
+      medium: "1.5rem",
+      large: "2rem",
+      xlarge: "3rem",
+    },
+    weights: {
+      regular: 400,
+      semibold: 600,
+      bold: 700,
+      extrabold: 800,
+    },
+  },
+  borderRadius: {
+    small: "8px",
+    large: "16px",
   },
 };

@@ -16,6 +16,23 @@ declare module "styled-components" {
       family: {
         default: string;
       };
+      sizes: {
+        small: string;
+        normal: string;
+        medium: string;
+        large: string;
+        xlarge: string;
+      };
+      weights: {
+        regular: number;
+        semibold: number;
+        bold: number;
+        extrabold: number;
+      };
+    };
+    borderRadius: {
+      small: string;
+      large: string;
     };
   }
 }
