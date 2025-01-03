@@ -13,7 +13,7 @@ export default function ProjectsPage() {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        type: "Comunidade",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",

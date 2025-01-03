@@ -5,6 +5,10 @@ import ClientLayout from "@/lib/client-layout";
 export const metadata: Metadata = {
   title: "IFConecta",
   description: "Plataforma para projetos de extensão",
+  // TODO Adicionar um favicon bom
+  icons: {
+    icon: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({

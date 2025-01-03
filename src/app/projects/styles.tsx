@@ -29,7 +29,7 @@ export const ResponsiveHeader = styled(ResponsiveContent)`
     font-weight: 800;
     color: ${({ theme }) => theme.colors.white900};
     text-transform: uppercase;
-
+    // TODO MELHORAR ESSA RESPONSIVIDADE
     @media (max-width: 1600px) {
       display: none;
     }

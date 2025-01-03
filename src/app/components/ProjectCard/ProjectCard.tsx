@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Group } from "@mui/icons-material";
+import { GroupsOutlined } from "@mui/icons-material";
 import { Building2 } from "lucide-react";
 import {
   Card,
@@ -58,7 +58,7 @@ export default function ProjectCard({
     setIsExpanded(!isExpanded);
   };
 
-  const typeIcon = type === "Empresa" ? <Building2 /> : <Group />;
+  const typeIcon = type === "Empresa" ? <Building2 /> : <GroupsOutlined />;
 
   return (
     <Card>
