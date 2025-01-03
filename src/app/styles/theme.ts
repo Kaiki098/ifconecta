@@ -2,6 +2,7 @@ import { type DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   colors: {
+    red: "red",
     black800: "#222222",
     green100: "#95FFC5",
     green300: "#00FF79",
@@ -16,14 +17,16 @@ export const theme: DefaultTheme = {
       default: "Open sans, sans-serif",
     },
     sizes: {
+      xsmall: "0.75rem",
       small: "0.875rem",
       normal: "1rem",
-      medium: "1.5rem",
+      medium: "1.25rem",
       large: "2rem",
       xlarge: "3rem",
     },
     weights: {
       regular: 400,
+      medium: 500,
       semibold: 600,
       bold: 700,
       extrabold: 800,
@@ -31,6 +34,7 @@ export const theme: DefaultTheme = {
   },
   borderRadius: {
     small: "8px",
+    medium: "12px",
     large: "16px",
   },
 };

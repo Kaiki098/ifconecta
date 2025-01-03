@@ -3,6 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
+      red: string;
       black800: string;
       green100: string;
       green300: string;
@@ -17,6 +18,7 @@ declare module "styled-components" {
         default: string;
       };
       sizes: {
+        xsmall: string;
         small: string;
         normal: string;
         medium: string;
@@ -25,6 +27,7 @@ declare module "styled-components" {
       };
       weights: {
         regular: number;
+        medium: number;
         semibold: number;
         bold: number;
         extrabold: number;
@@ -32,6 +35,7 @@ declare module "styled-components" {
     };
     borderRadius: {
       small: string;
+      medium: string;
       large: string;
     };
   }
