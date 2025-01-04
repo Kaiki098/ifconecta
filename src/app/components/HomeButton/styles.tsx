@@ -15,6 +15,7 @@ export const Button = styled.button`
   gap: 0.625em;
   text-transform: uppercase;
   border: none;
+  cursor: pointer;
 
   & > span {
     display: none;

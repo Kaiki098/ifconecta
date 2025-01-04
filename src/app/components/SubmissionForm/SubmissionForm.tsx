@@ -17,11 +17,11 @@ import {
   OnlyWhatsappLabel,
   Textarea,
   TextareaWrapper,
-  ThematicAreas,
 } from "./styles";
 import { useEffect } from "react";
 import debounce from "lodash/debounce";
 import { toast } from "react-toastify";
+import ThematicAreas from "../ThematicAreas/ThematicAreas";
 
 interface IFormData {
   project: {
@@ -30,7 +30,7 @@ interface IFormData {
     description: string;
     beneficiary: {
       name: string;
-      type: string;
+      group: string;
       contact: {
         email: string;
         phone: string;
@@ -55,7 +55,7 @@ export default function SubmissionForm() {
       project: {
         thematicAreas: [],
         beneficiary: {
-          type: "",
+          group: "",
           contact: {
             onlyWhatsapp: false,
           },
@@ -123,24 +123,13 @@ export default function SubmissionForm() {
         <Legend>Informações do projeto: </Legend>
         <Field>
           <Label>Área Temática:</Label>
-          <ThematicAreas>
-            {["Saúde", "Educação", "Meio Ambiente", "Outro"].map((area) => (
-              <label key={area}>
-                <input
-                  type="checkbox"
-                  {...register("project.thematicAreas", {
-                    required: "Selecione pelo menos uma área",
-                    validate: (value) =>
-                      value.length > 0 ||
-                      "Selecione pelo menos uma área temática",
-                  })}
-                  value={area}
-                />
-                {area}
-              </label>
-            ))}
-          </ThematicAreas>
-
+          <ThematicAreas
+            {...register("project.thematicAreas", {
+              required: "Selecione pelo menos uma área",
+              validate: (value) =>
+                value.length > 0 || "Selecione pelo menos uma área temática",
+            })}
+          />
           {errors.project?.thematicAreas && (
             <ErrorMessage>{errors.project.thematicAreas.message}</ErrorMessage>
           )}
@@ -151,7 +140,7 @@ export default function SubmissionForm() {
             <label>
               <input
                 type="radio"
-                {...register("project.beneficiary.type", {
+                {...register("project.beneficiary.group", {
                   required: "Selecione um tipo",
                 })}
                 value="empresa"
@@ -161,15 +150,15 @@ export default function SubmissionForm() {
             <label>
               <input
                 type="radio"
-                {...register("project.beneficiary.type")}
+                {...register("project.beneficiary.group")}
                 value="comunidade"
               />
               <GroupsOutlined /> Comunidade
             </label>
           </BeneficiaryGroup>
-          {errors.project?.beneficiary?.type && (
+          {errors.project?.beneficiary?.group && (
             <ErrorMessage>
-              {errors.project.beneficiary.type.message}
+              {errors.project.beneficiary.group.message}
             </ErrorMessage>
           )}
         </Field>

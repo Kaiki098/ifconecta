@@ -1,19 +1,37 @@
+"use client";
+
 import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import SearchInput from "../components/SearchInput/SearchInput";
-import { BgImage, ProjectsContainer, ResponsiveHeader, TopBar } from "./styles";
+import {
+  BgImage,
+  EmptyState,
+  ProjectsContainer,
+  ResponsiveHeader,
+  TopBar,
+} from "./styles";
+import { Bounce, ToastContainer } from "react-toastify";
+import { useState } from "react";
+import { Project } from "../types/project";
+import { Filters } from "../types/filter";
 
 export default function ProjectsPage() {
-  const projectsMock = [
+  const projectsMock: Project[] = [
     {
       id: 0,
-      thematicArea: "Saúde",
+      thematicAreas: [
+        "Saúde",
+        "Tecnologia",
+        "Meio Ambiente",
+        "Educação",
+        "Outro",
+      ],
       tittle: "Lorem Impsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Comunidade",
+        group: "Comunidade",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -24,12 +42,12 @@ export default function ProjectsPage() {
     },
     {
       id: 1,
-      thematicArea: "Saúde",
-      tittle: "Lorem Impsum",
+      thematicAreas: ["Saúde"],
+      tittle: "Esse aoṕeopc",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -40,12 +58,12 @@ export default function ProjectsPage() {
     },
     {
       id: 2,
-      thematicArea: "Saúde",
-      tittle: "Lorem Impsum",
+      thematicAreas: ["Saúde"],
+      tittle: "pdfnpav ops",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -56,12 +74,12 @@ export default function ProjectsPage() {
     },
     {
       id: 3,
-      thematicArea: "Saúde",
-      tittle: "Lorem Impsum",
+      thematicAreas: ["Saúde"],
+      tittle: "rgbp 2fd",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -72,12 +90,12 @@ export default function ProjectsPage() {
     },
     {
       id: 4,
-      thematicArea: "Saúde",
-      tittle: "Lorem Impsum",
+      thematicAreas: ["Saúde"],
+      tittle: "sof cw",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -88,12 +106,12 @@ export default function ProjectsPage() {
     },
     {
       id: 5,
-      thematicArea: "Saúde",
-      tittle: "Lorem Impsum",
+      thematicAreas: ["Saúde"],
+      tittle: "ljkjeje",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -104,12 +122,12 @@ export default function ProjectsPage() {
     },
     {
       id: 7,
-      thematicArea: "Saúde",
+      thematicAreas: ["Saúde"],
       tittle: "Lorem Impsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -120,12 +138,12 @@ export default function ProjectsPage() {
     },
     {
       id: 8,
-      thematicArea: "Saúde",
+      thematicAreas: ["Saúde"],
       tittle: "Lorem Impsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       beneficiary: {
-        type: "Empresa",
+        group: "Empresa",
         name: "Kaiki Alvarenga de Souza",
         contact: {
           email: "kaikialvarengasouza098@gmail.com",
@@ -136,8 +154,50 @@ export default function ProjectsPage() {
     },
   ];
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilters, setActiveFilters] = useState<Filters>({
+    thematicAreas: [],
+    group: "",
+  });
+
+  const filteredProjects = projectsMock.filter((project) => {
+    const matchesSearch = project.tittle
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+
+    const matchesThematicAreas =
+      activeFilters.thematicAreas.length === 0 ||
+      project.thematicAreas.some((area) =>
+        activeFilters.thematicAreas.includes(area),
+      );
+
+    const matchesGroup =
+      activeFilters.group === "" ||
+      project.beneficiary.group === activeFilters.group;
+
+    return matchesSearch && matchesThematicAreas && matchesGroup;
+  });
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
+
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        limit={3}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <TopBar>
         <ResponsiveHeader $hideOnMobile>
           <Image
@@ -149,7 +209,10 @@ export default function ProjectsPage() {
           />
           <h1>Projetos Cadastrados</h1>
         </ResponsiveHeader>
-        <SearchInput />
+        <SearchInput
+          onFilter={(newFilters) => setActiveFilters(newFilters)}
+          onSearch={handleSearch}
+        />
         <HomeButton />
       </TopBar>
 
@@ -162,9 +225,13 @@ export default function ProjectsPage() {
           quality={100}
         />
 
-        {projectsMock.map((project) => {
+        {filteredProjects.map((project) => {
           return <ProjectCard key={project.id} project={project} />;
         })}
+
+        {filteredProjects.length === 0 && (
+          <EmptyState>Nenhum projeto encontrado</EmptyState>
+        )}
       </ProjectsContainer>
     </>
   );

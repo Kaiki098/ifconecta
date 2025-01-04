@@ -1,3 +1,4 @@
+import { ThematicArea } from "@/app/types/thematicArea";
 import { Copy, Mail, Minus, Phone, Plus } from "lucide-react";
 import styled, { css } from "styled-components";
 
@@ -20,15 +21,28 @@ export const Card = styled.article`
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  gap: 1em;
+  align-items: flex-start;
 `;
 
-export const ThematicAreaIcon = styled.span`
+export const ThematicAreaWrapper = styled.div`
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+`;
+
+interface ThematicAreaIconProps {
+  $variant: ThematicArea;
+}
+
+export const ThematicAreaIcon = styled.span<ThematicAreaIconProps>`
   display: flex;
   align-items: center;
   padding: 0.1em 0.6em;
-  background-color: ${({ theme }) => theme.colors.green100};
+  background-color: ${({ theme, $variant }) =>
+    theme.colors.thematics[$variant].secondary};
   border-radius: 16px;
-  color: ${({ theme }) => theme.colors.green600};
+  color: ${({ theme, $variant }) => theme.colors.thematics[$variant].primary};
   font-size: 0.875rem;
   font-weight: 700;
 `;
@@ -123,7 +137,8 @@ export const MailIcon = styled(Mail)`
 `;
 
 export const CopyIcon = styled(Copy)`
-  width: 0.75em;
+  width: 1.25em;
+  cursor: pointer;
 `;
 
 export const Footer = styled.footer`

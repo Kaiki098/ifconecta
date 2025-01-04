@@ -52,6 +52,7 @@ export const FilterButton = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 export const InputWrapper = styled.div`

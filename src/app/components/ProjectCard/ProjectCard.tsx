@@ -19,54 +19,60 @@ import {
   MailIcon,
   CopyIcon,
   Description,
+  ThematicAreaWrapper,
 } from "./styles";
+import { toast } from "react-toastify";
+import { Project } from "@/app/types/project";
 
 interface ProjectCardProps {
-  project: {
-    thematicArea: "Saúde" | "Tecnologia" | string;
-    tittle: string;
-    description: string;
-    beneficiary: {
-      type: "Empresa" | "Comunidade" | string;
-      name: string;
-      contact: {
-        email: string;
-        phone: string;
-        onlyWhatsapp: boolean;
-      };
-    };
-  };
+  project: Project;
 }
 
 export default function ProjectCard({
   project: {
-    thematicArea,
+    thematicAreas,
     tittle,
     description,
     beneficiary: {
-      type,
+      group,
       name,
       contact: { email, phone, onlyWhatsapp },
     },
   },
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-
   console.log(name, email, phone, onlyWhatsapp);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const typeIcon = type === "Empresa" ? <Building2 /> : <GroupsOutlined />;
+  const groupIcon = group === "Empresa" ? <Building2 /> : <GroupsOutlined />;
+
+  const handleCopy = async (text: string, type: "Telefone" | "Email") => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success(`${type} copiado!`);
+    } catch (e) {
+      console.log(e);
+      toast.error("Erro ao copiar");
+    }
+  };
 
   return (
     <Card>
       <Header>
-        <ThematicAreaIcon>{thematicArea}</ThematicAreaIcon>
+        <ThematicAreaWrapper>
+          {thematicAreas.map((area) => (
+            <ThematicAreaIcon key={area} $variant={area}>
+              {area}
+            </ThematicAreaIcon>
+          ))}
+        </ThematicAreaWrapper>
+
         <GroupInfo>
-          {typeIcon}
-          {isExpanded ? type : ""}
+          {groupIcon}
+          {isExpanded ? group : ""}
         </GroupInfo>
       </Header>
       <Body>
@@ -87,12 +93,13 @@ export default function ProjectCard({
             </h4>
             <Contact>
               <p>
-                <PhoneIcon /> {phone} <CopyIcon />
+                <PhoneIcon /> {phone}{" "}
+                <CopyIcon onClick={() => handleCopy(phone, "Telefone")} />
                 {onlyWhatsapp && "(Apenas Whatsapp)"}
               </p>
               <p>
                 <MailIcon /> {email}
-                <CopyIcon />
+                <CopyIcon onClick={() => handleCopy(phone, "Email")} />
               </p>
             </Contact>
           </BeneficiaryInfo>

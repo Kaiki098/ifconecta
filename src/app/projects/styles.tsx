@@ -59,4 +59,12 @@ const BgImage = styled(Image)`
   transform: translate(-50%, -50%);
 `;
 
+export const EmptyState = styled.div`
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2em;
+  font-size: ${({ theme }) => theme.font.sizes.medium};
+  color: ${({ theme }) => theme.colors.grey700};
+`;
+
 export { BgImage, ProjectsContainer, TopBar };

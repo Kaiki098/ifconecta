@@ -27,6 +27,7 @@ export const Fieldset = styled.fieldset`
   padding: 0 1em;
   padding-top: 0;
   border: none;
+  max-width: 450px;
 `;
 
 export const Field = styled.div`
@@ -67,17 +68,6 @@ export const OnlyWhatsappLabel = styled.label`
   align-items: center;
   gap: 0.3em;
   font-size: ${({ theme }) => theme.font.sizes.small};
-`;
-
-export const ThematicAreas = styled.div`
-  display: flex;
-  gap: 0.5em;
-  flex-wrap: wrap;
-
-  & label {
-    display: flex;
-    gap: 0.2em;
-  }
 `;
 
 export const BeneficiaryGroup = styled.div`

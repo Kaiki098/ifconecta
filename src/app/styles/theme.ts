@@ -11,6 +11,14 @@ export const theme: DefaultTheme = {
     green700: "#11A64A",
     white900: "#ffffff",
     grey700: "#828282",
+    thematics: {
+      // Saúde é green100 e green 600
+      Saúde: { primary: "#2FA676", secondary: "#95FFC5" },
+      Tecnologia: { primary: "#540b90", secondary: "#cdb3e2" },
+      Educação: { primary: "#8c4a1b", secondary: "#e4d3c7" },
+      "Meio Ambiente": { primary: "#1a2577", secondary: "#c1c4e1" },
+      Outro: { primary: "#a12a2a", secondary: "#e1b1b1" },
+    },
   },
   font: {
     family: {

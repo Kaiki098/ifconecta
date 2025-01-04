@@ -1,3 +1,4 @@
+import { ThematicArea } from "@/app/types/thematicArea";
 import "styled-components";
 
 declare module "styled-components" {
@@ -12,6 +13,9 @@ declare module "styled-components" {
       green700: string;
       white900: string;
       grey700: string;
+      thematics: {
+        [K in ThematicArea]: { primary: string; secondary: string };
+      };
     };
     font: {
       family: {
