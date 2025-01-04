@@ -156,6 +156,7 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.green500};
   font-size: 0.875rem;
   gap: 0.1em;
+  cursor: pointer;
 `;
 
 export const MinusIcon = styled(Minus)`

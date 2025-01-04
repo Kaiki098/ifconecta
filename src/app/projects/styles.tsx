@@ -42,12 +42,12 @@ export const ResponsiveHeader = styled(ResponsiveContent)`
 
 const ProjectsContainer = styled.main`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2em;
   margin: 1em 2em 4em 2em;
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 `;
 

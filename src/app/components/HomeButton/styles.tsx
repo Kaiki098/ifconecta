@@ -16,6 +16,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   border: none;
   cursor: pointer;
+  z-index: 10;
 
   & > span {
     display: none;

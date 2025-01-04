@@ -54,14 +54,15 @@ export default function Login() {
           <LoginIntro>
             <h1> Conecte-se</h1>
             <p>
-              Caso seja um professor da instituição, preencha com suas
-              credencias para ter acesso aos projetos enviados.
+              Caso seja um professor da instituição, <br />
+              preencha com suas credencias para ter <br />
+              acesso aos projetos enviados.
             </p>
             <Image
               src="/images/logoBig.svg"
               alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
-              width={500}
-              height={500}
+              width={400}
+              height={400}
             />
           </LoginIntro>
         </ResponsiveContent>

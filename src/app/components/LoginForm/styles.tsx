@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Fieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
@@ -18,7 +24,7 @@ export const Label = styled.label`
   font-weight: 700;
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 `;
 
@@ -39,10 +45,10 @@ export const Input = styled.input<InputProps>`
   }
 
   @media (min-width: 1024px) {
-    width: 28em;
-    height: 3.75em;
+    width: 18em;
     border: 4px solid ${({ $error }) => ($error ? "red" : "transparent")};
     border-radius: 16px;
+    font-size: ${({ theme }) => theme.font.sizes.medium};
   }
 `;
 
@@ -56,11 +62,12 @@ export const Button = styled.button`
   font-weight: 800;
   width: fit-content;
   margin: 1.5em auto 0.5em auto;
+  cursor: pointer;
 
   @media (min-width: 1024px) {
     font-size: 1.5rem;
     padding: 1em 3em;
-    margin: 3em auto 1em auto;
+    margin: 2em auto 1em auto;
     border-radius: 16px;
   }
 `;

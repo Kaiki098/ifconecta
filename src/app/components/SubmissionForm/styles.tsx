@@ -78,7 +78,7 @@ export const BeneficiaryGroup = styled.div`
     display: flex;
     align-items: center;
     gap: 0.3em;
-    font-weight: ${({ theme }) => theme.font.weights.semibold};
+    font-weight: ${({ theme }) => theme.font.weights.medium};
   }
 `;
 

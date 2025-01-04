@@ -240,7 +240,6 @@ export default function SubmissionForm() {
           )}
         </Field>
 
-        {/* FIXME Esse campo de telefone tá ruim, precisa auto formatar os números de telefone */}
         <Field>
           <Label htmlFor="project.beneficiary.contact.phone">Telefone:</Label>
           <Input

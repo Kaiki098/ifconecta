@@ -157,7 +157,7 @@ export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState<Filters>({
     thematicAreas: [],
-    group: "",
+    groups: [],
   });
 
   const filteredProjects = projectsMock.filter((project) => {
@@ -172,9 +172,10 @@ export default function ProjectsPage() {
       );
 
     const matchesGroup =
-      activeFilters.group === "" ||
-      project.beneficiary.group === activeFilters.group;
+      activeFilters.groups.length === 0 ||
+      activeFilters.groups.includes(project.beneficiary.group);
 
+    console.log(matchesGroup);
     return matchesSearch && matchesThematicAreas && matchesGroup;
   });
 

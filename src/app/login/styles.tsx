@@ -104,7 +104,7 @@ export const LoginIntro = styled.section`
   align-items: flex-start;
   gap: 4em;
   border-left: 8px solid ${({ theme }) => theme.colors.green300};
-  padding: 4em;
+  padding: 2em 2em 2em 4em;
   max-height: fit-content;
   max-width: 70ch;
 
@@ -122,6 +122,6 @@ export const LoginIntro = styled.section`
 
   p {
     color: ${({ theme }) => theme.colors.white900};
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 `;

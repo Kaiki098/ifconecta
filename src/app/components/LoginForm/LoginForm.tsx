@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { Button, Field, Fieldset, Input, Label } from "./styles";
+import { Button, Field, Fieldset, Form, Input, Label } from "./styles";
 import { VisibilityInput } from "../VisibilityInput/VisibilityInput";
 
 interface InputData {
@@ -32,7 +32,7 @@ export const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(handleLogin)}>
+    <Form onSubmit={handleSubmit(handleLogin)}>
       <Fieldset>
         <Field>
           <Label htmlFor="username">Usuário:</Label>
@@ -49,8 +49,8 @@ export const LoginForm = () => {
             $error={!!errors.password}
           />
         </Field>
-        <Button type="submit">Continuar</Button>
       </Fieldset>
-    </form>
+      <Button type="submit">Continuar</Button>
+    </Form>
   );
 };

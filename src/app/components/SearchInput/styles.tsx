@@ -148,3 +148,36 @@ export const FilterOptions = styled.div`
   display: flex;
   gap: 0.5rem;
 `;
+
+export const GroupLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  border-radius: ${({ theme }) => theme.borderRadius.large};
+  transition: background-color 0.2s;
+  background-color: ${({ theme }) => theme.colors.white900};
+  color: ${({ theme }) => theme.colors.black800};
+  font-weight: ${({ theme }) => theme.font.weights.semibold};
+  font-size: ${({ theme }) => theme.font.sizes.small};
+
+  &:hover {
+    box-shadow: 0 0 2px 2px ${({ theme }) => theme.colors.black800};
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked + svg {
+      display: block;
+    }
+  }
+
+  & svg {
+    width: 1em;
+    height: 1em;
+    color: ${({ theme }) => theme.colors.black800};
+    display: none;
+  }
+`;

@@ -24,10 +24,10 @@ export const Input = styled.input<InputProps>`
   }
 
   @media (min-width: 1024px) {
-    width: 28em;
-    height: 3.75em;
+    width: 18em;
     border: 4px solid ${({ $error }) => ($error ? "red" : "transparent")};
     border-radius: 16px;
+    font-size: ${({ theme }) => theme.font.sizes.medium};
   }
 `;
 

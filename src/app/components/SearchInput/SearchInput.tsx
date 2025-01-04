@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import {
   InputWrapper,
   SearchIcon,
@@ -14,9 +14,11 @@ import {
   SearchSection,
   ChevronDownIcon,
   ChevronRightIcon,
+  GroupLabel,
 } from "./styles";
 import ThematicAreas from "../ThematicAreas/ThematicAreas";
 import { Filters } from "@/app/types/filter";
+import { X } from "lucide-react";
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -27,8 +29,9 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
   const [showFilter, setShowFilter] = useState(false);
   const [filters, setFilters] = useState<Filters>({
     thematicAreas: [],
-    group: "",
+    groups: [],
   });
+
   function handleFilterClick() {
     setShowFilter((s) => !s);
   }
@@ -42,6 +45,21 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
     setFilters(newFilters);
     onFilter(newFilters);
   };
+
+  const handleGroupChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    const updatedGroups = checked
+      ? [...filters.groups, value]
+      : filters.groups.filter((group) => group !== value);
+
+    const newFilters = { ...filters, groups: updatedGroups };
+    setFilters(newFilters);
+    onFilter(newFilters);
+  };
+
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
 
   return (
     <SearchSection $showFilter={showFilter}>
@@ -65,7 +83,28 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
           <ThematicAreas onChange={handleThematicAreaChange} />
         </FilterOptions>
         <FilterHeading>Perfil</FilterHeading>
-        <FilterOptions></FilterOptions>
+        <FilterOptions>
+          <GroupLabel>
+            <input
+              name="beneficiaryGroup"
+              type="checkbox"
+              value="Empresa"
+              onChange={handleGroupChange}
+            />
+            Empresa
+            <X />
+          </GroupLabel>
+          <GroupLabel>
+            <input
+              name="beneficiaryGroup"
+              type="checkbox"
+              value="Comunidade"
+              onChange={handleGroupChange}
+            />
+            Comunidade
+            <X />
+          </GroupLabel>
+        </FilterOptions>
       </FiltersPanel>
     </SearchSection>
   );
