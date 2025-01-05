@@ -8,10 +8,12 @@ declare module "styled-components" {
       black800: string;
       green100: string;
       green300: string;
+      green400: string;
       green500: string;
       green600: string;
       green700: string;
       white900: string;
+      grey500: string;
       grey700: string;
       thematics: {
         [K in ThematicArea]: { primary: string; secondary: string };
@@ -28,6 +30,7 @@ declare module "styled-components" {
         medium: string;
         large: string;
         xlarge: string;
+        xxlarge: string;
       };
       weights: {
         regular: number;

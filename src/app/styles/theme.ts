@@ -6,10 +6,12 @@ export const theme: DefaultTheme = {
     black800: "#222222",
     green100: "#95FFC5",
     green300: "#00FF79",
+    green400: "#25D066",
     green500: "#5FC385",
     green600: "#2FA676",
     green700: "#11A64A",
     white900: "#ffffff",
+    grey500: "#e1e1e1",
     grey700: "#828282",
     thematics: {
       // Saúde é green100 e green 600
@@ -22,7 +24,7 @@ export const theme: DefaultTheme = {
   },
   font: {
     family: {
-      default: "Open sans, sans-serif",
+      default: "Open sans",
     },
     sizes: {
       xsmall: "0.75rem",
@@ -31,6 +33,7 @@ export const theme: DefaultTheme = {
       medium: "1.25rem",
       large: "2rem",
       xlarge: "3rem",
+      xxlarge: "4rem",
     },
     weights: {
       regular: 400,

@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import StyledComponentsRegistry from "@/lib/registry";
 import ClientLayout from "@/lib/client-layout";
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "IFConecta",
@@ -17,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className={openSans.variable}>
       <body>
         <StyledComponentsRegistry>
           <ClientLayout>{children}</ClientLayout>
