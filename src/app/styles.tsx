@@ -11,8 +11,18 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.black800};
-  color: var(--white-900);
+  color: ${({ theme }) => theme.colors.white900};
   z-index: 10;
+
+  @media (max-width: 1024px) {
+    padding: 0.5em 1em;
+  }
+
+  @media (max-width: 580px) {
+    & img {
+      height: 60px;
+    }
+  }
 `;
 
 export const NavList = styled.ul`
@@ -36,6 +46,14 @@ export const NavList = styled.ul`
       border-radius: ${({ theme }) => theme.borderRadius.small};
       background-color: ${({ theme }) => theme.colors.grey700};
     }
+
+    @media (max-width: 1024px) {
+      font-size: ${({ theme }) => theme.font.sizes.normal};
+    }
+  }
+
+  @media (max-width: 810px) {
+    display: none;
   }
 `;
 
@@ -47,11 +65,38 @@ export const LoginLink = styled(Link)`
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   color: ${({ theme }) => theme.colors.white900};
   background-color: ${({ theme }) => theme.colors.green700};
+  transition:
+    font-size 0.2s,
+    background-color 0.2s;
+
+  &:hover {
+    font-size: calc(${({ theme }) => theme.font.sizes.normal} + 0.1rem);
+    background-color: #0de974;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
+
+    &:hover {
+      font-size: calc(${({ theme }) => theme.font.sizes.small} + 0.1rem);
+      background-color: #0de974;
+    }
+  }
+
+  @media (max-width: 440px) {
+    font-size: ${({ theme }) => theme.font.sizes.xsmall};
+    text-align: center;
+
+    &:hover {
+      font-size: ${({ theme }) => theme.font.sizes.xsmall};
+      background-color: #0de974;
+    }
+  }
 `;
 
 export const Presentation = styled.section`
   background-color: transparent;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,12 +113,24 @@ export const Presentation = styled.section`
     background-color: rgba(0, 159, 53, 0.5); // #009f35 with opacity
     z-index: 1;
   }
+
+  @media (max-width: 1024px) {
+    margin-top: calc(90px + 1em);
+  }
+
+  @media (max-width: 580px) {
+    margin-top: calc(60px + 1em);
+  }
 `;
 
 export const PresentationImage = styled(Image)`
   z-index: 0;
   width: 100%;
-  height: auto;
+  object-fit: cover;
+
+  @media (max-width: 1024px) {
+    height: 600px;
+  }
 `;
 
 export const PresentationContent = styled.div`
@@ -87,11 +144,21 @@ export const PresentationContent = styled.div`
 `;
 
 export const IconsLeft = styled(Image)`
-  height: 80%;
+  width: 40%;
+  margin: 2em;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const IconsRight = styled(Image)`
-  height: 80%;
+  width: 40%;
+  margin: 2em;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const HeroContent = styled.div`
@@ -115,6 +182,16 @@ export const HeroContent = styled.div`
     margin-bottom: 3em;
     text-align: center;
   }
+
+  @media (max-width: 900px) {
+    & h1 {
+      font-size: ${({ theme }) => theme.font.sizes.xlarge};
+    }
+
+    & p {
+      font-size: ${({ theme }) => theme.font.sizes.medium};
+    }
+  }
 `;
 
 export const SubmissionLink = styled(Link)`
@@ -125,14 +202,32 @@ export const SubmissionLink = styled(Link)`
   padding: 1em 1.5em;
   background-color: ${({ theme }) => theme.colors.green400};
   border-radius: ${({ theme }) => theme.borderRadius.large};
+  transition:
+    font-size 0.2s,
+    background-color 0.2s;
+
+  &:hover {
+    font-size: calc(${({ theme }) => theme.font.sizes.medium} + 0.1rem);
+    background-color: #0de974;
+  }
+
+  @media (max-width: 900px) {
+    font-size: ${({ theme }) => theme.font.sizes.normal};
+
+    &:hover {
+      font-size: calc(${({ theme }) => theme.font.sizes.normal} + 0.1rem);
+    }
+  }
 `;
 
 export const About = styled.section`
   background-color: ${({ theme }) => theme.colors.grey500};
-  height: 800px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 2em;
+  padding: 8em 4em;
 `;
 
 export const AboutContent = styled.div`
@@ -165,25 +260,70 @@ export const AboutContent = styled.div`
   & p:first-of-type {
     margin-bottom: 5em;
   }
+
+  @media (max-width: 1240px) {
+    & span {
+      font-size: ${({ theme }) => theme.font.sizes.medium};
+    }
+
+    & h1 {
+      font-size: ${({ theme }) => theme.font.sizes.xlarge};
+    }
+
+    & h2 {
+      font-size: ${({ theme }) => theme.font.sizes.medium};
+    }
+  }
 `;
 
 export const BigLogoImage = styled(Image)`
   border-radius: 32px;
+
+  @media (max-width: 1240px) {
+    width: 400px;
+    height: auto;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const HowItWorks = styled.section`
   background-color: ${({ theme }) => theme.colors.green700};
-  height: 800px;
+  padding: 12em 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 
   & h1 {
-    margin-bottom: 2em;
-    margin-left: 1em;
+    position: absolute;
+    top: 0.75em;
+    left: 0.75em;
     color: ${({ theme }) => theme.colors.white900};
     font-size: ${({ theme }) => theme.font.sizes.xxlarge};
     font-weight: ${({ theme }) => theme.font.weights.extrabold};
+
+    @media (max-width: 1240px) {
+      font-size: ${({ theme }) => theme.font.sizes.xlarge};
+      top: 1.25em;
+      left: 1.25em;
+    }
+
+    @media (max-width: 900px) {
+      position: initial;
+      margin: 0 0 0.25em 1.5em;
+    }
+
+    @media (max-width: 900px) {
+      font-size: ${({ theme }) => theme.font.sizes.large};
+    }
+  }
+
+  @media (max-width: 900px) {
+    padding: 3em 0;
   }
 `;
 
@@ -193,12 +333,57 @@ export const WorkflowContainer = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  & div {
+  & > div {
     z-index: 2;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & h2 {
+    font-size: ${({ theme }) => theme.font.sizes.large};
+    font-weight: ${({ theme }) => theme.font.weights.extrabold};
+    color: ${({ theme }) => theme.colors.white900};
+    text-decoration: underline;
+    margin-bottom: 0.5em;
   }
 
   & p {
-    max-width: 250px;
+    font-weight: ${({ theme }) => theme.font.weights.semibold};
+    color: ${({ theme }) => theme.colors.white900};
+  }
+
+  @media (max-width: 1240px) {
+    & > div {
+      max-width: 200px;
+    }
+
+    & h2 {
+      font-size: ${({ theme }) => theme.font.sizes.medium};
+    }
+
+    & p {
+      font-weight: ${({ theme }) => theme.font.weights.semibold};
+      color: ${({ theme }) => theme.colors.white900};
+      font-size: ${({ theme }) => theme.font.sizes.small};
+    }
+  }
+  @media (max-width: 900px) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    & > div {
+      max-width: 100%;
+      flex-direction: row;
+      margin-right: 2em;
+    }
+  }
+`;
+
+export const WorkflowText = styled.div`
+  @media (max-width: 900px) {
+    flex-direction: column;
   }
 `;
 
@@ -218,6 +403,18 @@ export const Line = styled.svg`
     stroke-linecap: round;
     stroke-dasharray: 16;
     text-align: center;
+    vector-effect: non-scaling-stroke;
+  }
+
+  @media (max-width: 900px) {
+    width: 800px;
+    left: 8em;
+    transform: translate(-50%) rotate(90deg);
+  }
+
+  @media (max-width: 580px) {
+    left: 6em;
+    width: 600px;
   }
 `;
 
@@ -226,9 +423,30 @@ export const IconWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 50%;
   width: fit-content;
+  margin: 2em;
+
   & svg {
     color: ${({ theme }) => theme.colors.green300};
     width: 140px;
     height: auto;
+
+    @media (max-width: 1240px) {
+      width: 100px;
+    }
+
+    @media (max-width: 580px) {
+      width: 60px;
+    }
   }
+
+  @media (max-width: 900px) {
+    order: -1;
+    align-self: flex-start;
+  }
+`;
+
+export const Footer = styled.footer`
+  height: 600px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.black800};
 `;

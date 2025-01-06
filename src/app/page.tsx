@@ -19,6 +19,8 @@ import {
   IconWrapper,
   WorkflowContainer,
   Line,
+  Footer,
+  WorkflowText,
 } from "./styles";
 import Image from "next/image";
 import { Blocks, BookCheck, Container, Workflow } from "lucide-react";
@@ -105,7 +107,7 @@ export default function Home() {
                 instituição
               </p>
               <SubmissionLink href="/submission">
-                Clique aqui para enviar sua proposta
+                Envie sua proposta
               </SubmissionLink>
             </HeroContent>
             <IconsRight
@@ -126,7 +128,7 @@ export default function Home() {
               vitae tincidunt turpis. Morbi vitae lectus ac orci pretium
               vehicula. Quisque.
             </p>
-            <h2>O que é extensão</h2>
+            <h2>O que é extensão?</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
               vitae tincidunt turpis. Morbi vitae lectus ac orci pretium
@@ -147,11 +149,13 @@ export default function Home() {
               <path d="M8.50003 138.5C392.427 -248.18 794.18 419.339 1119.6 4.91727" />
             </Line>
             <div>
-              <h2>1. Envio do Projeto</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                fringilla sed dolor et tincidunt.
-              </p>
+              <WorkflowText>
+                <h2>1. Envio do Projeto</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque fringilla sed dolor et tincidunt.
+                </p>
+              </WorkflowText>
               <IconWrapper>
                 <BookCheck />
               </IconWrapper>
@@ -160,18 +164,22 @@ export default function Home() {
               <IconWrapper>
                 <Workflow />
               </IconWrapper>
-              <h2>2. Projeto em sala de aula</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                fringilla sed dolor et tincidunt.
-              </p>
+              <WorkflowText>
+                <h2>2. Projeto em sala de aula</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque fringilla sed dolor et tincidunt.
+                </p>
+              </WorkflowText>
             </div>
             <div>
-              <h2>3. Execução do projeto</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                fringilla sed dolor et tincidunt.
-              </p>
+              <WorkflowText>
+                <h2>3. Execução do projeto</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque fringilla sed dolor et tincidunt.
+                </p>
+              </WorkflowText>
               <IconWrapper>
                 <Blocks />
               </IconWrapper>
@@ -180,15 +188,18 @@ export default function Home() {
               <IconWrapper>
                 <Container />
               </IconWrapper>
-              <h2>4. Conclusão do projeto</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                fringilla sed dolor et tincidunt.
-              </p>
+              <WorkflowText>
+                <h2>4. Conclusão do projeto</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque fringilla sed dolor et tincidunt.
+                </p>
+              </WorkflowText>
             </div>
           </WorkflowContainer>
         </HowItWorks>
       </main>
+      <Footer>a</Footer>
     </>
   );
 }
