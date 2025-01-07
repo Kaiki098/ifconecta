@@ -26,6 +26,7 @@ export const LoginForm = () => {
       data.username.trim() == "admin" &&
       data.password.trim() == "sitebomdemais"
     ) {
+      document.cookie = "auth=true; path=/;";
       router.push("/projects");
     } else {
       setError("username", {});

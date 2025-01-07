@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   InputWrapper,
   SearchIcon,
@@ -56,10 +56,6 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
     setFilters(newFilters);
     onFilter(newFilters);
   };
-
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
 
   return (
     <SearchSection $showFilter={showFilter}>

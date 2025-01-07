@@ -175,7 +175,6 @@ export default function ProjectsPage() {
       activeFilters.groups.length === 0 ||
       activeFilters.groups.includes(project.beneficiary.group);
 
-    console.log(matchesGroup);
     return matchesSearch && matchesThematicAreas && matchesGroup;
   });
 
