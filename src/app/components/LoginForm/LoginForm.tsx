@@ -22,7 +22,10 @@ export const LoginForm = () => {
   const router = useRouter();
 
   function handleLogin(data: InputData) {
-    if (data.username == "admin" && data.password == "1234") {
+    if (
+      data.username.trim() == "admin" &&
+      data.password.trim() == "sitebomdemais"
+    ) {
       router.push("/projects");
     } else {
       setError("username", {});

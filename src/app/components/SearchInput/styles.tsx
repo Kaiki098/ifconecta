@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { SearchOutlined } from "@mui/icons-material";
 import { ResponsiveContent } from "@/app/styles/globals";
+import { Group } from "@/app/types/thematicAreaAndGroups";
 
 export const SearchSection = styled.div<SearchSectionProps>`
   position: absolute;
@@ -12,9 +13,9 @@ export const SearchSection = styled.div<SearchSectionProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
-  background-color: ${({ theme }) => theme.colors.green700};
-  border-radius: 24px;
+  width: 60%;
+  max-width: 450px;
+  clip-path: inset(0 0 -100vh 0 round 24px 24px 0 0);
 `;
 
 interface SearchSectionProps {
@@ -22,16 +23,13 @@ interface SearchSectionProps {
 }
 
 export const SearchBar = styled.div`
-  padding: 0.25em;
+  padding: 0.375em;
+  background-color: ${({ theme }) => theme.colors.green700};
+  border-radius: 24px;
   display: flex;
   align-items: center;
-  gap: 0.25em;
-  max-width: 600px;
-
-  @media (min-width: 1024px) {
-    gap: 0.5em;
-    padding: 0.375em;
-  }
+  gap: 0.5em;
+  width: 100%;
 `;
 
 export const ChevronRightIcon = styled(ChevronRight)`
@@ -56,6 +54,7 @@ export const FilterButton = styled.button`
 `;
 
 export const InputWrapper = styled.div`
+  display: flex;
   position: relative;
   height: 100%;
   width: 100%;
@@ -70,7 +69,7 @@ export const SearchIcon = styled(SearchOutlined)`
   width: 0.25em;
   height: 0.25em;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 810px) {
     width: 1.1em;
     height: 1.1em;
     left: 0.75em;
@@ -82,18 +81,16 @@ export const Input = styled.input`
   border-radius: 1.6em;
   border-color: transparent;
   height: 100%;
-  padding: 0.25em 0.5em 0.25em 2.5em;
-  font-size: 0.75rem;
+  padding: 0.375em 0.75em 0.375em 2.5em;
+  font-size: ${({ theme }) => theme.font.sizes.small};
   text-align: center;
 
   &:focus {
     outline: none;
   }
 
-  @media (min-width: 1024px) {
-    padding: 0.375em 0.75em 0.375em 2.5em;
-    font-size: 1.2rem;
-    max-width: 500px;
+  @media (min-width: 810px) {
+    font-size: ${({ theme }) => theme.font.sizes.normal};
   }
 `;
 
@@ -102,30 +99,27 @@ interface FiltersPanelProps {
 }
 
 export const FiltersPanel = styled.div<FiltersPanelProps>`
-  position: absolute;
+  position: inherit;
   top: calc(100% - 1.5em);
-  padding-top: 0.75em;
   transform: ${({ $isVisible }) =>
-    $isVisible ? "translateY(0.6em)" : "translateY(0))"};
+    $isVisible ? "translateY(0)" : "translateY(-100%)"};
   background-color: ${({ theme }) => theme.colors.green700};
   padding: 1em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   width: -moz-available;
   width: -webkit-fill-available;
   z-index: -1;
-  border-radius: ${({ $isVisible }) => ($isVisible ? "0 0 24px 24px" : "24px")};
+  border-radius: 0 0 24px 24px;
 
   transition:
-    visibility 0.2s ease-in-out,
-    transform 0.2s ease-in-out,
-    border-radius 0.2s ease-in-out;
+    visibility 0.4s,
+    transform 0.4s;
   visibility: ${({ $isVisible }) => ($isVisible ? "visible" : "hidden")};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 810px) {
     transform: ${({ $isVisible }) =>
-      $isVisible ? "translateY(1.5em)" : "translateY(0))"};
+      $isVisible ? "translateY(1.5em)" : "translateY(-100%)"};
     top: calc(100% - 3em);
-    padding-top: 1.5em;
   }
 `;
 
@@ -139,17 +133,22 @@ export const FilterHeading = styled.h3`
     margin-top: 1rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 810px) {
     font-size: 1rem;
   }
 `;
 
 export const FilterOptions = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 `;
 
-export const GroupLabel = styled.label`
+interface GroupLabelProps {
+  $variant: Group;
+}
+
+export const GroupLabel = styled.label<GroupLabelProps>`
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -157,13 +156,15 @@ export const GroupLabel = styled.label`
   padding: 0.1em 0.6em;
   border-radius: ${({ theme }) => theme.borderRadius.large};
   transition: background-color 0.2s;
-  background-color: ${({ theme }) => theme.colors.white900};
-  color: ${({ theme }) => theme.colors.black800};
+  background-color: ${({ theme, $variant }) =>
+    theme.colors.groups[$variant].secondary};
+  color: ${({ theme, $variant }) => theme.colors.groups[$variant].primary};
   font-weight: ${({ theme }) => theme.font.weights.semibold};
-  font-size: ${({ theme }) => theme.font.sizes.small};
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
 
   &:hover {
-    box-shadow: 0 0 2px 2px ${({ theme }) => theme.colors.black800};
+    box-shadow: 0 0 2px 2px
+      ${({ $variant, theme }) => `${theme.colors.groups[$variant].secondary}66`};
   }
 
   input[type="checkbox"] {
@@ -177,7 +178,11 @@ export const GroupLabel = styled.label`
   & svg {
     width: 1em;
     height: 1em;
-    color: ${({ theme }) => theme.colors.black800};
+    color: ${({ theme, $variant }) => theme.colors.groups[$variant].primary};
     display: none;
+  }
+
+  @media (min-width: 480px) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
   }
 `;

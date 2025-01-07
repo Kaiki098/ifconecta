@@ -13,6 +13,10 @@ export const theme: DefaultTheme = {
     white900: "#ffffff",
     grey500: "#e1e1e1",
     grey700: "#828282",
+    groups: {
+      Empresa: { primary: "#B34400", secondary: "#FFAD7B" },
+      Comunidade: { primary: "#8EAC00", secondary: "#F1FFAF" },
+    },
     thematics: {
       // Saúde é green100 e green 600
       Saúde: { primary: "#2FA676", secondary: "#95FFC5" },

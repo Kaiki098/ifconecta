@@ -14,6 +14,10 @@ export const Nav = styled.nav`
   color: ${({ theme }) => theme.colors.white900};
   z-index: 10;
 
+  & img {
+    width: auto;
+  }
+
   @media (max-width: 1024px) {
     padding: 0.5em 1em;
   }
@@ -382,6 +386,7 @@ export const WorkflowContainer = styled.div`
 `;
 
 export const WorkflowText = styled.div`
+  margin: 1em;
   @media (max-width: 900px) {
     flex-direction: column;
   }
@@ -442,6 +447,10 @@ export const IconWrapper = styled.div`
   @media (max-width: 900px) {
     order: -1;
     align-self: flex-start;
+  }
+
+  @media (max-width: 390px) {
+    margin: 1em;
   }
 `;
 

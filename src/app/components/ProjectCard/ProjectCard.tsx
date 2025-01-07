@@ -5,11 +5,8 @@ import { GroupsOutlined } from "@mui/icons-material";
 import { Building2 } from "lucide-react";
 import {
   Card,
-  Header,
-  Body,
   BeneficiaryInfo,
   Contact,
-  Footer,
   Button,
   GroupInfo,
   ThematicAreaIcon,
@@ -20,6 +17,9 @@ import {
   CopyIcon,
   Description,
   ThematicAreaWrapper,
+  ProjectMeta,
+  ProjectContent,
+  ActionBar,
 } from "./styles";
 import { toast } from "react-toastify";
 import { Project } from "@/app/types/project";
@@ -41,7 +41,6 @@ export default function ProjectCard({
   },
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  console.log(name, email, phone, onlyWhatsapp);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -61,7 +60,7 @@ export default function ProjectCard({
 
   return (
     <Card>
-      <Header>
+      <ProjectMeta>
         <ThematicAreaWrapper>
           {thematicAreas.map((area) => (
             <ThematicAreaIcon key={area} $variant={area}>
@@ -74,8 +73,8 @@ export default function ProjectCard({
           {groupIcon}
           {isExpanded ? group : ""}
         </GroupInfo>
-      </Header>
-      <Body>
+      </ProjectMeta>
+      <ProjectContent>
         <h2>
           <strong>{tittle}</strong>
         </h2>
@@ -104,8 +103,8 @@ export default function ProjectCard({
             </Contact>
           </BeneficiaryInfo>
         )}
-      </Body>
-      <Footer>
+      </ProjectContent>
+      <ActionBar>
         <Button onClick={toggleExpand}>
           {isExpanded ? (
             <>
@@ -119,7 +118,7 @@ export default function ProjectCard({
             </>
           )}
         </Button>
-      </Footer>
+      </ActionBar>
     </Card>
   );
 }

@@ -84,7 +84,7 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
         </FilterOptions>
         <FilterHeading>Perfil</FilterHeading>
         <FilterOptions>
-          <GroupLabel>
+          <GroupLabel $variant="Empresa">
             <input
               name="beneficiaryGroup"
               type="checkbox"
@@ -94,7 +94,7 @@ export default function SearchInput({ onSearch, onFilter }: SearchInputProps) {
             Empresa
             <X />
           </GroupLabel>
-          <GroupLabel>
+          <GroupLabel $variant="Comunidade">
             <input
               name="beneficiaryGroup"
               type="checkbox"

@@ -1,4 +1,4 @@
-import { ThematicArea } from "@/app/types/thematicArea";
+import { ThematicArea } from "@/app/types/thematicAreaAndGroups";
 import "styled-components";
 
 declare module "styled-components" {
@@ -15,6 +15,9 @@ declare module "styled-components" {
       white900: string;
       grey500: string;
       grey700: string;
+      groups: {
+        [K in Group]: { primary: string; secondary };
+      };
       thematics: {
         [K in ThematicArea]: { primary: string; secondary: string };
       };

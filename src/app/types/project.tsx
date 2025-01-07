@@ -1,4 +1,4 @@
-import { ThematicArea } from "./thematicArea";
+import { ThematicArea } from "./thematicAreaAndGroups";
 
 export interface Project {
   id: number;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ThematicArea } from "@/app/types/thematicArea";
+import { ThematicArea } from "@/app/types/thematicAreaAndGroups";
 
 export const Container = styled.div`
   display: flex;
@@ -28,12 +28,7 @@ export const ThematicalLabel = styled.label<ThematicLabelProps>`
     theme.colors.thematics[$variant].secondary};
   color: ${({ $variant, theme }) => theme.colors.thematics[$variant].primary};
   font-weight: ${({ theme }) => theme.font.weights.semibold};
-  font-size: ${({ theme }) => theme.font.sizes.small};
-
-  &:hover {
-    box-shadow: 0 0 2px 2px
-      ${({ $variant, theme }) => `${theme.colors.thematics[$variant]}66`};
-  }
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
 
   input[type="checkbox"] {
     display: none;
@@ -48,5 +43,15 @@ export const ThematicalLabel = styled.label<ThematicLabelProps>`
     height: 1em;
     color: ${({ $variant, theme }) => theme.colors.thematics[$variant].primary};
     display: none;
+  }
+
+  &:hover {
+    box-shadow: 0 0 2px 2px
+      ${({ $variant, theme }) =>
+        `${theme.colors.thematics[$variant].secondary}66`};
+  }
+
+  @media (min-width: 480px) {
+    font-size: ${({ theme }) => theme.font.sizes.small};
   }
 `;

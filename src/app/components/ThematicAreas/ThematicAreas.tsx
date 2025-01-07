@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import { Container, ThematicalLabel } from "./styles";
 import { X } from "lucide-react";
-import { THEMATIC_AREAS } from "@/app/types/thematicArea";
+import { THEMATIC_AREAS } from "@/app/types/thematicAreaAndGroups";
 
 export default function ThematicAreas({
   ...props

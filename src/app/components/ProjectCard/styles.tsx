@@ -1,8 +1,8 @@
-import { ThematicArea } from "@/app/types/thematicArea";
+import { ThematicArea } from "@/app/types/thematicAreaAndGroups";
 import { Copy, Mail, Minus, Phone, Plus } from "lucide-react";
 import styled, { css } from "styled-components";
 
-export const Card = styled.article`
+export const Card = styled.div`
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const Card = styled.article`
   }
 `;
 
-export const Header = styled.header`
+export const ProjectMeta = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1em;
@@ -55,7 +55,7 @@ export const GroupInfo = styled.span`
   font-weight: 700;
 `;
 
-export const Body = styled.section`
+export const ProjectContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -141,7 +141,7 @@ export const CopyIcon = styled(Copy)`
   cursor: pointer;
 `;
 
-export const Footer = styled.footer`
+export const ActionBar = styled.div`
   display: flex;
   justify-content: flex-end;
 `;

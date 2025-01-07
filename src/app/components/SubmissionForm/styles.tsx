@@ -124,11 +124,12 @@ export const ConfirmButton = styled.button`
   padding: 0.75em 1.5em;
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   background-color: ${({ theme }) => theme.colors.green700};
-  font-size: ${({ theme }) => theme.font.sizes.small};
   color: ${({ theme }) => theme.colors.white900};
   font-weight: ${({ theme }) => theme.font.weights.extrabold};
   text-transform: uppercase;
   border: none;
+  cursor: pointer;
+  transition: font-size 0.2s;
 
   &:disabled {
     opacity: 0.7;
@@ -138,5 +139,8 @@ export const ConfirmButton = styled.button`
   @media (min-width: 1024px) {
     font-size: ${({ theme }) => theme.font.sizes.medium};
     margin: 0 auto;
+    &:hover {
+      font-size: calc(${({ theme }) => theme.font.sizes.medium} + 0.01rem);
+    }
   }
 `;

@@ -10,13 +10,14 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.white900};
   padding: 0.5em;
   border-radius: 8px;
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.font.sizes.medium};
   font-weight: 800;
   gap: 0.625em;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
   z-index: 10;
+  transition: font-size 0.2s;
 
   & > span {
     display: none;
@@ -30,6 +31,10 @@ export const Button = styled.button`
     }
 
     padding: 0.5em 1em;
+
+    &:hover {
+      font-size: calc(${({ theme }) => theme.font.sizes.medium} + 0.5rem);
+    }
   }
 `;
 

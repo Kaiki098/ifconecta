@@ -10,7 +10,7 @@ export const HomeButton = ({
   const router = useRouter();
 
   function handleHomeClick() {
-    router.back();
+    router.push("/");
   }
 
   return (
