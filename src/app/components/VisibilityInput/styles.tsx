@@ -5,6 +5,18 @@ export const InputWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+
+  & svg:first-child {
+    position: absolute;
+    left: 0.75em;
+    color: ${({ theme }) => theme.colors.grey700};
+    width: 16px;
+
+    @media (min-width: 1024px) {
+      width: 24px;
+      left: 1em;
+    }
+  }
 `;
 
 interface InputProps {
@@ -13,9 +25,11 @@ interface InputProps {
 
 export const Input = styled.input<InputProps>`
   border-radius: 8px;
+  font-family: ${({ theme }) => theme.font.family.default};
   height: 2.5em;
   width: 14em;
   padding: 0.75em;
+  padding-left: 2.5em;
   border: 2px solid ${({ $error }) => ($error ? "red" : "transparent")};
 
   &:focus {
@@ -34,7 +48,7 @@ export const Input = styled.input<InputProps>`
 const IconBase = css`
   position: absolute;
   right: 0.75em;
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.grey700};
   width: 16px;
 
   @media (min-width: 1024px) {

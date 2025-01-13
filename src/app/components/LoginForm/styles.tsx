@@ -16,6 +16,29 @@ export const Field = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5em;
+
+  span {
+    color: ${({ theme }) => `${theme.colors.red}AA`};
+    font-size: ${({ theme }) => theme.font.sizes.xsmall};
+  }
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & svg {
+    position: absolute;
+    left: 0.75em;
+    color: ${({ theme }) => theme.colors.grey700};
+    width: 16px;
+
+    @media (min-width: 1024px) {
+      width: 24px;
+      left: 1em;
+    }
+  }
 `;
 
 export const Label = styled.label`
@@ -33,10 +56,12 @@ interface InputProps {
 }
 
 export const Input = styled.input<InputProps>`
+  font-family: ${({ theme }) => theme.font.family.default};
   border-radius: 8px;
   height: 2.5em;
   width: 14em;
   padding: 0.75em;
+  padding-left: 2.5em;
   border: 2px solid ${({ $error }) => ($error ? "red" : "transparent")};
 
   &:focus {
@@ -63,6 +88,11 @@ export const Button = styled.button`
   width: fit-content;
   margin: 1.5em auto 0.5em auto;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => `${theme.colors.black800}DD`};
+    transform: scale(1.05);
+  }
 
   @media (min-width: 1024px) {
     font-size: 1.5rem;

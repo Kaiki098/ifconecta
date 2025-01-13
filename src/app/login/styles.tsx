@@ -56,8 +56,12 @@ export const Title2 = styled.h2`
   margin-bottom: 1em;
 `;
 
-export const Card = styled.section`
-  background-color: ${({ theme }) => theme.colors.green700};
+export const Card = styled.div`
+  background: linear-gradient(
+    130deg,
+    ${({ theme }) => theme.colors.green700} 0%,
+    ${({ theme }) => theme.colors.green500} 100%
+  );
   width: fit-content;
   height: fit-content;
   display: flex;
