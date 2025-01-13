@@ -75,10 +75,11 @@ interface DescriptionProps {
 
 export const Description = styled.p<DescriptionProps>`
   font-size: 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
   ${({ $isExpanded }) =>
-    $isExpanded
-      ? ""
-      : css`
+    !$isExpanded
+      ? css`
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -86,7 +87,8 @@ export const Description = styled.p<DescriptionProps>`
           -webkit-box-orient: vertical;
           line-clamp: 3;
           box-orient: vertical;
-        `}
+        `
+      : ""}
 `;
 
 export const BeneficiaryInfo = styled.section`

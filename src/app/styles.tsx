@@ -118,6 +118,35 @@ export const Presentation = styled.section`
     z-index: 1;
   }
 
+  figure {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: end;
+
+    figcaption {
+      position: absolute;
+      margin: 1em;
+      bottom: 0;
+      right: 0;
+      font-weight: ${({ theme }) => theme.font.weights.bold};
+      font-size: ${({ theme }) => theme.font.sizes.xsmall};
+      color: ${({ theme }) => theme.colors.green100};
+      z-index: 3;
+
+      a {
+        color: ${({ theme }) => theme.colors.green500};
+      }
+
+      @media (max-width: 1024px) {
+        margin-top: calc(90px + 1em);
+      }
+    }
+  }
+
   @media (max-width: 1024px) {
     margin-top: calc(90px + 1em);
   }

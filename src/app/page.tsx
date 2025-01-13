@@ -87,12 +87,21 @@ export default function Home() {
       <main>
         <Presentation id="presentation">
           {/* TODO Melhorar alt */}
-          <PresentationImage
-            src="/images/presentationBgImg.png"
-            alt="Pessoas apontando para um computador"
-            width={1920}
-            height={800}
-          />
+          <figure>
+            <PresentationImage
+              src="/images/presentationBgImg.png"
+              alt="Pessoas apontando para um computador"
+              width={1920}
+              height={800}
+            />
+            <figcaption>
+              Imagem por{" "}
+              <a href="https://unsplash.com/pt-br/fotografias/three-person-pointing-the-silver-laptop-computer-2FPjlAyMQTA">
+                John Schnobrich
+              </a>{" "}
+              na <a href="https://unsplash.com">Unsplash</a>.
+            </figcaption>
+          </figure>
           <PresentationContent>
             <IconsLeft
               src="/images/iconesEsquerda.svg"
@@ -103,7 +112,7 @@ export default function Home() {
             <HeroContent>
               <h1>IFConecta</h1>
               <p>
-                Conecte-se a nossa <br />
+                Conecte-se à nossa <br />
                 instituição
               </p>
               <SubmissionLink href="/submission">
