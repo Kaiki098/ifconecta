@@ -3,7 +3,7 @@ import { ThematicArea } from "./thematicAreaAndGroups";
 export interface Project {
   id: number;
   thematicAreas: ThematicArea[];
-  tittle: string;
+  title: string;
   description: string;
   beneficiary: {
     group: "Empresa" | "Comunidade";

@@ -31,7 +31,7 @@ interface ProjectCardProps {
 export default function ProjectCard({
   project: {
     thematicAreas,
-    tittle,
+    title: tittle,
     description,
     beneficiary: {
       group,
