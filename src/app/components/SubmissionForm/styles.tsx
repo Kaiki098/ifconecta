@@ -130,7 +130,9 @@ export const ConfirmButton = styled.button`
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: font-size 0.2s;
+  transition:
+    font-size 0.2s,
+    background-color 0.2s;
 
   &:disabled {
     opacity: 0.7;
@@ -141,7 +143,8 @@ export const ConfirmButton = styled.button`
     font-size: ${({ theme }) => theme.font.sizes.medium};
     margin: 0 auto;
     &:hover {
-      font-size: calc(${({ theme }) => theme.font.sizes.medium} + 0.01rem);
+      font-size: calc(${({ theme }) => theme.font.sizes.medium} + 0.1rem);
+      background-color: ${({ theme }) => `${theme.colors.green700}CC`};
     }
   }
 `;

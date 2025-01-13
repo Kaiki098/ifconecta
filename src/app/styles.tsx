@@ -14,10 +14,6 @@ export const Nav = styled.nav`
   color: ${({ theme }) => theme.colors.white900};
   z-index: 10;
 
-  & img {
-    width: auto;
-  }
-
   @media (max-width: 1024px) {
     padding: 0.5em 1em;
   }
@@ -25,6 +21,7 @@ export const Nav = styled.nav`
   @media (max-width: 580px) {
     & img {
       height: 60px;
+      width: auto;
     }
   }
 `;
@@ -159,6 +156,7 @@ export const Presentation = styled.section`
 export const PresentationImage = styled(Image)`
   z-index: 0;
   width: 100%;
+  height: 800px;
   object-fit: cover;
 
   @media (max-width: 1024px) {

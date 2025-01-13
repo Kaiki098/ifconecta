@@ -54,7 +54,7 @@ export default function Home() {
           alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
           width={205}
           height={90}
-          quality={100}
+          priority
         />
         <NavList>
           <li>
@@ -93,6 +93,7 @@ export default function Home() {
               alt="Pessoas apontando para um computador"
               width={1920}
               height={800}
+              priority
             />
             <figcaption>
               Imagem por{" "}

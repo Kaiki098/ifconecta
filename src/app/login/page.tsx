@@ -42,7 +42,6 @@ export default function Login() {
               alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
               width={140}
               height={60}
-              quality={100}
             />
           </ResponsiveContent>
           <HomeButton />

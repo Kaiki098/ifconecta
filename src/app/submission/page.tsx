@@ -36,7 +36,6 @@ export default function SubmissionPage() {
           alt="Logo IFConecta, universidade e comunidade ligadas por uma linha tracejada que passa pela palavra 'IFConecta'"
           width={100}
           height={44}
-          quality={100}
         />
         <h1>Cadastrar novo projeto</h1>
         <HomeButton />
