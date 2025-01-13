@@ -111,8 +111,6 @@ export default function SubmissionForm() {
         },
       };
 
-      console.log(JSON.stringify(payload));
-
       const response = await fetch(
         `${process.env.IFCONECTA_API_URL}/projects/create`,
         {
@@ -123,17 +121,6 @@ export default function SubmissionForm() {
           body: JSON.stringify(payload),
         },
       );
-
-      if (!response.ok) {
-        console.log(response.text());
-        toast.update(toastId, {
-          render: "Erro ao enviar projeto. Tente novamente.",
-          type: "error",
-          isLoading: false,
-          autoClose: 3000,
-        });
-        throw new Error("Failed to submit a project.");
-      }
 
       const result = await response.json();
 
@@ -146,12 +133,7 @@ export default function SubmissionForm() {
         });
         reset();
       } else {
-        toast.update(toastId, {
-          render: "Erro ao enviar projeto. Tente novamente.",
-          type: "error",
-          isLoading: false,
-          autoClose: 3000,
-        });
+        throw new Error(result.message);
       }
     } catch (error) {
       console.error("Submission error:", error);

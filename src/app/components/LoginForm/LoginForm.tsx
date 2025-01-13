@@ -55,28 +55,17 @@ export const LoginForm = () => {
         return;
       }
 
-      if (!response.ok) {
-        throw new Error(
-          "Houve um erro no servidor. Tente novamente mais tarde.",
-        );
-      }
-
       const result = await response.json();
 
       if (result.success && result.jwt) {
         document.cookie = `auth=${result.jwt}; path=/;`;
         router.push("/projects");
-      }
-    } catch (error: unknown) {
-      console.error(error);
-
-      if (error instanceof Error) {
-        toast.error(
-          error.message || "Erro ao conectar. Tente novamente mais tarde.",
-        );
       } else {
-        toast.error("Erro ao conectar. Tente novamente mais tarde.");
+        throw new Error(result.messsage);
       }
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro ao conectar. Tente novamente mais tarde.");
     }
   }
 

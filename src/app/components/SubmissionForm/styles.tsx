@@ -42,6 +42,7 @@ export const ErrorMessage = styled.span`
 `;
 
 export const Input = styled.input`
+  font-family: ${({ theme }) => theme.font.family.default};
   border: 1px solid ${({ theme }) => theme.colors.black800};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   padding: 1em;

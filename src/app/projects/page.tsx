@@ -45,6 +45,13 @@ export default function ProjectsPage() {
         return;
       }
 
+      const cachedProjects = localStorage.getItem("projects");
+      if (cachedProjects) {
+        setProjects(JSON.parse(cachedProjects));
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(
           process.env.IFCONECTA_API_URL + "/projects",
@@ -56,12 +63,15 @@ export default function ProjectsPage() {
             },
           },
         );
-        if (!response.ok) {
-          throw new Error("Failed to fetch projects");
-        }
+
         const result = await response.json();
 
-        setProjects(result.data);
+        if (result.success && result.data) {
+          setProjects(result.data);
+          localStorage.setItem("projects", JSON.stringify(result.data));
+        } else {
+          throw new Error(result.message);
+        }
       } catch (error) {
         console.error(error);
         toast.error("Erro ao carregar projetos.");
