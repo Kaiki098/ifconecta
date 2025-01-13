@@ -134,15 +134,25 @@ export default function Home() {
             <h1>IFConecta</h1>
             <h2>O que é a plataforma?</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              vitae tincidunt turpis. Morbi vitae lectus ac orci pretium
-              vehicula. Quisque.
+              A plataforma IF Conecta é um espaço inovador que visa promover a 
+              colaboração entre a comunidade e os alunos de Ciência da Computação do IF.
+              Aqui, qualquer pessoa pode compartilhar problemas do cotidiano que necessitam
+              de soluções tecnológicas, e nossos estudantes têm a oportunidade de aplicar 
+              seus conhecimentos para ajudar a resolver essas questões. Seja para melhorar a
+              vida de todos com soluções criativas ou para desenvolver novos projetos, o 
+              IF Conecta busca criar um ambiente de troca de ideias e soluções para os desafios
+              do dia a dia. Através dessa iniciativa, você pode fazer a diferença na sociedade 
+              enquanto contribui para o aprendizado prático dos futuros profissionais de tecnologia.
             </p>
             <h2>O que é extensão?</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              vitae tincidunt turpis. Morbi vitae lectus ac orci pretium
-              vehicula. Quisque.
+            A extensão universitária é uma das três funções acadêmicas principais das universidades, 
+            ao lado do ensino e da pesquisa. Ela tem como objetivo principal aproximar a universidade 
+            da sociedade, levando o conhecimento produzido na academia para fora dos muros da instituição, 
+            além de integrar a universidade com a comunidade em que está inserida. A extensão promove 
+            atividades e projetos que envolvem a aplicação prática do conhecimento acadêmico para resolver 
+            problemas reais da sociedade e contribuir para o bem-estar da população. A Extensão Universitária 
+            desempenha um papel crucial ao levar o conhecimento acadêmico para fora da sala de aula e beneficiar a sociedade.
             </p>
           </AboutContent>
           <BigLogoImage
@@ -162,8 +172,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>1. Envio do Projeto</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque fringilla sed dolor et tincidunt.
+                Cadastre sua ideia ou projeto descrevendo o problema ou desafio que você gostaria que nossos 
+                alunos de Ciência da Computação resolvessem. Seja claro e detalhado para que possamos entender 
+                suas necessidades e encaminhá-las da melhor forma para a equipe de estudantes.
                 </p>
               </WorkflowText>
               <IconWrapper>
@@ -177,8 +188,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>2. Projeto em sala de aula</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque fringilla sed dolor et tincidunt.
+                Após o envio da sua proposta, a ideia será discutida nas aulas de Ciência da Computação. Nossos 
+                alunos irão estudar o desafio, realizar pesquisas e se reunir para definir o melhor plano de ação 
+                para o desenvolvimento da solução. O aprendizado prático será aplicado neste estágio.
                 </p>
               </WorkflowText>
             </div>
@@ -186,8 +198,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>3. Execução do projeto</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque fringilla sed dolor et tincidunt.
+                Nesta fase, nossos alunos começarão a executar o projeto, desenvolvendo as soluções técnicas para o 
+                problema ou ideias propostas. Durante a execução, haverá interação contínua para ajustes, feedbacks 
+                e possíveis melhorias no projeto, garantindo que o resultado atenda às suas expectativas.
                 </p>
               </WorkflowText>
               <IconWrapper>
@@ -201,8 +214,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>4. Conclusão do projeto</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque fringilla sed dolor et tincidunt.
+                Ao final da execução, você receberá o projeto concluído. Nossa equipe e os alunos estarão disponíveis 
+                para apresentar as soluções desenvolvidas e discutir o impacto do trabalho. Você poderá avaliar os resultados 
+                e sugerir melhorias, além de fornecer um feedback para que possamos aprimorar futuros projetos.
                 </p>
               </WorkflowText>
             </div>
