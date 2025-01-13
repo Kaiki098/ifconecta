@@ -1,8 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ResponsiveContent } from "../styles/globals";
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Spinner = styled.div`
+  border: 8px solid ${({ theme }) => theme.colors.grey500};
+  border-top: 8px solid ${({ theme }) => theme.colors.green700};
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  animation: ${spin} 1s linear infinite;
+`;
 
 const TopBar = styled.header`
   display: flex;
@@ -45,6 +75,7 @@ const ProjectsContainer = styled.main`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2em;
   margin: 1em 2em 4em 2em;
+  height: 100%;
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));

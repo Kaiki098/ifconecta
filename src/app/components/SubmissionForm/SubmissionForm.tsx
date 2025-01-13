@@ -54,9 +54,14 @@ export default function SubmissionForm() {
     defaultValues: {
       project: {
         thematicAreas: [],
+        title: "",
+        description: "",
         beneficiary: {
+          name: "",
           group: "",
           contact: {
+            email: "",
+            phone: "",
             onlyWhatsapp: false,
           },
         },
@@ -90,18 +95,66 @@ export default function SubmissionForm() {
   const handleSubmission: SubmitHandler<IFormData> = async (data) => {
     try {
       const toastId = toast.loading("Enviando projeto...");
+      const payload = {
+        title: data.project.title,
+        description: data.project.description,
+        thematicAreas: data.project.thematicAreas,
+        beneficiary: {
+          name: data.project.beneficiary.name,
+          group: data.project.beneficiary.group,
+          contact: {
+            email: data.project.beneficiary.contact.email,
+            phone: data.project.beneficiary.contact.phone,
+            onlyWhatsapp:
+              data.project.beneficiary.contact.onlyWhatsapp || "false", // Por algum motivo não posso passar false sem ser string
+          },
+        },
+      };
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      toast.update(toastId, {
-        render: "Projeto enviado com sucesso!",
-        type: "success",
-        isLoading: false,
-        autoClose: 3000,
-      });
-      console.log(data);
-      reset();
-    } catch (e) {
-      console.log(e);
+      console.log(JSON.stringify(payload));
+
+      const response = await fetch(
+        `${process.env.IFCONECTA_API_URL}/projects/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      if (!response.ok) {
+        console.log(response.text());
+        toast.update(toastId, {
+          render: "Erro ao enviar projeto. Tente novamente.",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
+        throw new Error("Failed to submit a project.");
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.update(toastId, {
+          render: "Projeto enviado com sucesso!",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
+        reset();
+      } else {
+        toast.update(toastId, {
+          render: "Erro ao enviar projeto. Tente novamente.",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
       toast.error("Erro ao enviar projeto. Tente novamente.");
     }
   };

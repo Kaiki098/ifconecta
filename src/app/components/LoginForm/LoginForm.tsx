@@ -21,17 +21,41 @@ export const LoginForm = () => {
 
   const router = useRouter();
 
-  function handleLogin(data: InputData) {
-    if (
-      data.username.trim() == "admin" &&
-      data.password.trim() == "sitebomdemais"
-    ) {
-      document.cookie = "auth=true; path=/;";
-      router.push("/projects");
-    } else {
-      setError("username", {});
-      setError("password", {});
-      toast.error("Nome de usuário ou senha incorretos.");
+  async function handleLogin(data: InputData) {
+    try {
+      const payload = {
+        username: data.username.trim(),
+        password: data.password.trim(),
+      };
+
+      const response = await fetch(
+        process.env.IFCONECTA_API_URL + "/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
+
+      const result = await response.json();
+
+      if (result.success && result.jwt) {
+        document.cookie = `auth=${result.jwt}; path=/;`;
+        router.push("/projects");
+      } else {
+        setError("username", {});
+        setError("password", {});
+        toast.error("Nome de usuário ou senha incorretos.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro ao conectar à API.");
     }
   }
 

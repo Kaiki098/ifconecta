@@ -7,161 +7,74 @@ import SearchInput from "../components/SearchInput/SearchInput";
 import {
   BgImage,
   EmptyState,
+  PageContainer,
   ProjectsContainer,
   ResponsiveHeader,
+  Spinner,
+  SpinnerContainer,
   TopBar,
 } from "./styles";
-import { Bounce, ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
 import { Project } from "../types/project";
 import { Filters } from "../types/filter";
+import { useRouter } from "next/navigation";
 
 export default function ProjectsPage() {
-  const projectsMock: Project[] = [
-    {
-      id: 0,
-      thematicAreas: [
-        "Saúde",
-        "Tecnologia",
-        "Meio Ambiente",
-        "Educação",
-        "Outro",
-      ],
-      tittle: "Lorem Impsum",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Comunidade",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 1,
-      thematicAreas: ["Saúde"],
-      tittle: "Esse aoṕeopc",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 2,
-      thematicAreas: ["Saúde"],
-      tittle: "pdfnpav ops",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 3,
-      thematicAreas: ["Saúde"],
-      tittle: "rgbp 2fd",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 4,
-      thematicAreas: ["Saúde"],
-      tittle: "sof cw",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 5,
-      thematicAreas: ["Saúde"],
-      tittle: "ljkjeje",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 7,
-      thematicAreas: ["Saúde"],
-      tittle: "Lorem Impsum",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-    {
-      id: 8,
-      thematicAreas: ["Saúde"],
-      tittle: "Lorem Impsum",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam Lorem ipsum dolor sit amet, consectetur adipisci elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
-      beneficiary: {
-        group: "Empresa",
-        name: "Kaiki Alvarenga de Souza",
-        contact: {
-          email: "kaikialvarengasouza098@gmail.com",
-          phone: "(35) 99871-6323",
-          onlyWhatsapp: true,
-        },
-      },
-    },
-  ];
-
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState<Filters>({
     thematicAreas: [],
     groups: [],
   });
+  const router = useRouter();
 
-  const filteredProjects = projectsMock.filter((project) => {
-    const matchesSearch = project.tittle
+  function getCookie(name: string): string | null {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(";").shift() || null;
+    return null;
+  }
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const authToken = getCookie("auth");
+      if (!authToken) {
+        router.push("/login");
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          process.env.IFCONECTA_API_URL + "/projects",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${authToken}`,
+            },
+          },
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const result = await response.json();
+
+        setProjects(result.data);
+      } catch (error) {
+        console.error(error);
+        toast.error("Erro ao carregar projetos.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, [router]);
+
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch = project.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
 
@@ -183,7 +96,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <>
+    <PageContainer>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -225,14 +138,18 @@ export default function ProjectsPage() {
           quality={100}
         />
 
-        {filteredProjects.map((project) => {
-          return <ProjectCard key={project.id} project={project} />;
-        })}
-
-        {filteredProjects.length === 0 && (
+        {loading ? (
+          <SpinnerContainer>
+            <Spinner />
+          </SpinnerContainer>
+        ) : filteredProjects.length > 0 ? (
+          filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))
+        ) : (
           <EmptyState>Nenhum projeto encontrado</EmptyState>
         )}
       </ProjectsContainer>
-    </>
+    </PageContainer>
   );
 }

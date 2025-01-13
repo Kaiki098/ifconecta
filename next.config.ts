@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
+  env: {
+    IFCONECTA_API_URL: process.env.IFCONECTA_API_URL,
+  },
 };
 
 export default nextConfig;
