@@ -482,7 +482,47 @@ export const IconWrapper = styled.div`
 `;
 
 export const Footer = styled.footer`
-  height: 600px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.black800};
+  display: flex;
+  justify-content: center;
+  padding: 8em 2em;
+  color: ${({theme}) => theme.colors.green300};
+
+  @media (max-width: 820px) {
+    padding: 5em 2em;
+  }
+
+  & > div {
+    display: flex;
+    gap: 5em;
+    flex-wrap: wrap;
+
+    @media(min-width: 526px) {
+      justify-content: f;
+    }
+    & div {
+      max-width: 250px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin 1em;
+      
+      p{
+        font-weight: ${({theme}) => theme.font.weights.bold};};
+        font-size: ${({theme}) => theme.font.sizes.medium};
+      }
+
+      a:first-of-type { 
+        margin-top: 1em;
+      }
+      a {
+        margin: 0.2em 0;
+        color: ${({theme}) => theme.colors.white900};
+        text-decoration: none;
+        font-size: ${({theme}) => theme.font.sizes.small};
+      }
+    } 
+    
+  }
 `;

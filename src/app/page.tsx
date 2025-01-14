@@ -217,25 +217,32 @@ export default function Home() {
         </HowItWorks>
       </main>
       <Footer>
-    <div class="footer-container">
-        <div class="footer-info">
-            <p>Instituto Federal do Sul de Minas - Campus Passos</p>
-            <p>Endereço: Rua da Penha, 123 - Passos, MG</p>
-            <p>Telefone: (35) 1234-5678</p>
-            <p>Email: contato@ifrsudeminaspassos.edu.br</p>
+        <div>
+
+        <div>
+          <p>Consulte o cadastro do IFSULDEMINAS no e-MEC</p>
+          <Image  
+              src="/images/rodape-MEC.png"
+              alt="Icones"
+              width={206}
+              height={288}
+              />
         </div>
-        <div class="footer-social">
-            <p><a href="https://www.facebook.com/ifrsudeminaspassos" target="_blank">Facebook</a></p>
-            <p><a href="https://www.instagram.com/ifrsudeminaspassos" target="_blank">Instagram</a></p>
-            <p><a href="https://www.youtube.com/ifrsudeminaspassos" target="_blank">YouTube</a></p>
+        <div>
+          <p>Redes Sociais</p>
+          <a href="https://twitter.com/ifsuldeminas">Twitter</a>
+          <a href="https://www.youtube.com/channel/UC73UAcaqQqVwu9m6ZACOaDw">Youtube</a>
+          <a href="https://www.facebook.com/campuspassos/">Facebook</a>
+          <a href="http://instagram.com/instagram">Instagram</a>
         </div>
-        <div class="footer-links">
-            <a href="#">Termos de Uso</a> | 
-            <a href="#">Política de Privacidade</a> | 
-            <a href="#">Acessibilidade</a>
+        <div>
+          <p>Informações sobre o Campus</p>
+          <a href="">Contato</a>
+          <a href="">E-mail</a>
+          <a href="">Localização</a>
         </div>
-    </div>
-</Footer>
+              </div>
+      </Footer>
     </>
   );
 }
