@@ -217,11 +217,25 @@ export default function Home() {
         </HowItWorks>
       </main>
       <Footer>
-        <div>
-          <p>&copy; 2025 IFConecta. Todos os direitos reservados.</p>
+    <div class="footer-container">
+        <div class="footer-info">
+            <p>Instituto Federal do Sul de Minas - Campus Passos</p>
+            <p>Endereço: Rua da Penha, 123 - Passos, MG</p>
+            <p>Telefone: (35) 1234-5678</p>
+            <p>Email: contato@ifrsudeminaspassos.edu.br</p>
         </div>
-
-      </Footer>
+        <div class="footer-social">
+            <p><a href="https://www.facebook.com/ifrsudeminaspassos" target="_blank">Facebook</a></p>
+            <p><a href="https://www.instagram.com/ifrsudeminaspassos" target="_blank">Instagram</a></p>
+            <p><a href="https://www.youtube.com/ifrsudeminaspassos" target="_blank">YouTube</a></p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Política de Privacidade</a> | 
+            <a href="#">Acessibilidade</a>
+        </div>
+    </div>
+</Footer>
     </>
   );
 }
