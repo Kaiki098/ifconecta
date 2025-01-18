@@ -70,7 +70,6 @@ export const Input = styled.input<InputProps>`
   }
 
   @media (min-width: 1024px) {
-    width: 18em;
     border: 4px solid ${({ $error }) => ($error ? "red" : "transparent")};
     border-radius: 16px;
     font-size: ${({ theme }) => theme.font.sizes.medium};
@@ -96,8 +95,7 @@ export const Button = styled.button`
 
   @media (min-width: 1024px) {
     font-size: 1.5rem;
-    padding: 1em 3em;
-    margin: 2em auto 1em auto;
+    padding: 0.5em 1.5em;
     border-radius: 16px;
   }
 `;

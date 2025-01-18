@@ -27,7 +27,7 @@ export const Nav = styled.nav`
   @media (min-width: 1024px) {
     right: 0;
     width: fit-content;
-    padding: 4em;
+    padding: 2em;
   }
 `;
 
@@ -72,7 +72,6 @@ export const Card = styled.div`
 
   @media (min-width: 1024px) {
     align-items: flex-start;
-    padding: 2.8em 2.5em;
   }
 `;
 
@@ -109,12 +108,12 @@ export const LoginIntro = styled.section`
   gap: 4em;
   border-left: 8px solid ${({ theme }) => theme.colors.green300};
   padding: 2em 2em 2em 4em;
-  max-height: fit-content;
-  max-width: 70ch;
+  max-height: 90vh;
+  max-width: fit-content;
 
   h1 {
     color: ${({ theme }) => theme.colors.green300};
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.font.sizes.xlarge};
     font-weight: 800;
 
     &::before {
@@ -125,7 +124,13 @@ export const LoginIntro = styled.section`
   }
 
   p {
+    font-size: ${({ theme }) => theme.font.sizes.medium};
     color: ${({ theme }) => theme.colors.white900};
-    font-size: 1.25rem;
+  }
+
+  img {
+    height: 100%;
+    max-width: auto;
+    align-self: center;
   }
 `;
