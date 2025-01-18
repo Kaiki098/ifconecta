@@ -134,18 +134,18 @@ export default function Home() {
             <h1>IFConecta</h1>
             <h2>O que é a plataforma?</h2>
             <p>
-            A plataforma IF Conecta promove a colaboração entre a comunidade 
-            e alunos de Ciência da Computação do IF, permitindo que compartilhem 
-            problemas do cotidiano para soluções tecnológicas. Os estudantes 
-            aplicam seus conhecimentos para ajudar a resolver essas questões, 
-            criando um ambiente de troca de ideias e soluções para os desafios diários.
+              A plataforma IFConecta promove a colaboração entre a comunidade e
+              alunos do IF, permitindo que compartilhem problemas do cotidiano
+              para soluções tecnológicas. Os estudantes aplicam seus
+              conhecimentos para ajudar a resolver essas questões, criando um
+              ambiente de troca de ideias e soluções para os desafios diários.
             </p>
             <h2>O que é extensão?</h2>
             <p>
-            A extensão universitária aproxima a universidade da sociedade, aplicando 
-            o conhecimento acadêmico para resolver problemas reais e contribuir para 
-            o bem-estar da população. Ela integra a universidade com a comunidade e 
-            vai além da sala de aula.
+              A extensão universitária aproxima a universidade da sociedade,
+              aplicando o conhecimento acadêmico para resolver problemas reais e
+              contribuir para o bem-estar da população. Ela integra a
+              universidade com a comunidade e vai além da sala de aula.
             </p>
           </AboutContent>
           <BigLogoImage
@@ -165,9 +165,8 @@ export default function Home() {
               <WorkflowText>
                 <h2>1. Envio do Projeto</h2>
                 <p>
-                Descreva o problema ou desafio que você gostaria que nossos 
-                alunos de Ciência da Computação resolvessem, cadastrando 
-                sua ideia ou projeto.
+                  Descreva o problema ou desafio que você gostaria que nossos
+                  alunos resolvessem, cadastrando sua ideia ou projeto.
                 </p>
               </WorkflowText>
               <IconWrapper>
@@ -181,9 +180,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>2. Projeto em sala de aula</h2>
                 <p>
-                Após enviar sua proposta os alunos estudarão o desafio, farão 
-                pesquisas e definirão o melhor plano para a solução, 
-                aplicando aprendizado prático.
+                  Após enviar sua proposta os alunos estudarão o desafio, farão
+                  pesquisas e definirão o melhor plano para a solução, aplicando
+                  aprendizado prático.
                 </p>
               </WorkflowText>
             </div>
@@ -191,9 +190,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>3. Execução do projeto</h2>
                 <p>
-                Nesta fase, os alunos desenvolverão as soluções técnicas, com 
-                interação contínua para ajustes, feedbacks e melhorias, 
-                garantindo que o resultado atenda às expectativas.
+                  Nesta fase, os alunos desenvolverão as soluções técnicas, com
+                  interação contínua para ajustes, feedbacks e melhorias,
+                  garantindo que o resultado atenda às expectativas.
                 </p>
               </WorkflowText>
               <IconWrapper>
@@ -207,9 +206,9 @@ export default function Home() {
               <WorkflowText>
                 <h2>4. Conclusão do projeto</h2>
                 <p>
-                Ao final, você receberá o projeto concluído e poderá avaliar os 
-                resultados, sugerir melhorias e fornecer feedback para 
-                aprimorar futuros projetos.
+                  Ao final, você receberá o projeto concluído e poderá avaliar
+                  os resultados, sugerir melhorias e fornecer feedback para
+                  aprimorar futuros projetos.
                 </p>
               </WorkflowText>
             </div>
@@ -218,30 +217,31 @@ export default function Home() {
       </main>
       <Footer>
         <div>
-
-        <div>
-          <p>Consulte o cadastro do IFSULDEMINAS no e-MEC</p>
-          <Image  
+          <div>
+            <p>Consulte o cadastro do IFSULDEMINAS no e-MEC</p>
+            <Image
               src="/images/rodape-MEC.png"
               alt="Icones"
               width={206}
               height={288}
-              />
+            />
+          </div>
+          <div>
+            <p>Redes Sociais</p>
+            <a href="https://twitter.com/ifsuldeminas">Twitter</a>
+            <a href="https://www.youtube.com/channel/UC73UAcaqQqVwu9m6ZACOaDw">
+              Youtube
+            </a>
+            <a href="https://www.facebook.com/campuspassos/">Facebook</a>
+            <a href="http://instagram.com/instagram">Instagram</a>
+          </div>
+          <div>
+            <p>Informações sobre o Campus</p>
+            <a href="">Contato</a>
+            <a href="">E-mail</a>
+            <a href="">Localização</a>
+          </div>
         </div>
-        <div>
-          <p>Redes Sociais</p>
-          <a href="https://twitter.com/ifsuldeminas">Twitter</a>
-          <a href="https://www.youtube.com/channel/UC73UAcaqQqVwu9m6ZACOaDw">Youtube</a>
-          <a href="https://www.facebook.com/campuspassos/">Facebook</a>
-          <a href="http://instagram.com/instagram">Instagram</a>
-        </div>
-        <div>
-          <p>Informações sobre o Campus</p>
-          <a href="">Contato</a>
-          <a href="">E-mail</a>
-          <a href="">Localização</a>
-        </div>
-              </div>
       </Footer>
     </>
   );
