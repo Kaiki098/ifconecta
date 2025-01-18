@@ -9,7 +9,7 @@ import {
   SubmissionHeader,
   Triangle,
 } from "./styles";
-import SubmissionForm from "../components/SubmissionForm/SubmissionForm";
+import SubmissionForm from "../components/submission/SubmissionForm/SubmissionForm";
 import { ResponsiveContent } from "../styles/globals";
 import { Bounce, ToastContainer } from "react-toastify";
 

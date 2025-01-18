@@ -12,7 +12,7 @@ import {
   Title1,
   Title2,
 } from "./styles";
-import { LoginForm } from "../components/LoginForm/LoginForm";
+import { LoginForm } from "../components/login/LoginForm/LoginForm";
 import { ResponsiveContent } from "../styles/globals";
 import { Bounce, ToastContainer } from "react-toastify";
 

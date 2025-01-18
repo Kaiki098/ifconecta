@@ -16,7 +16,7 @@ import {
   ChevronRightIcon,
   GroupLabel,
 } from "./styles";
-import ThematicAreas from "../ThematicAreas/ThematicAreas";
+import ThematicAreas from "../../submission/ThematicAreas/ThematicAreas";
 import { Filters } from "@/app/types/filter";
 import { X } from "lucide-react";
 

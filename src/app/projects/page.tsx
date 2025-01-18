@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { HomeButton } from "../components/HomeButton/HomeButton";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
-import SearchInput from "../components/SearchInput/SearchInput";
+import ProjectCard from "../components/projects/ProjectCard/ProjectCard";
+import SearchInput from "../components/projects/SearchInput/SearchInput";
 import {
   BgImage,
   EmptyState,
