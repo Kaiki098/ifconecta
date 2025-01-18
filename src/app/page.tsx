@@ -6,6 +6,7 @@ import Presentation from "./components/home/Presentation/Presentation";
 import About from "./components/home/About/About";
 import HowItWorks from "./components/home/HowItWorks/HowItWorks";
 import Footer from "./components/home/Footer/Footer";
+import { Main } from "./styles";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
@@ -31,11 +32,11 @@ export default function Home() {
   return (
     <>
       <Header activeSection={activeSection} />
-      <main>
+      <Main>
         <Presentation />
         <About />
         <HowItWorks />
-      </main>
+      </Main>
       <Footer />
     </>
   );

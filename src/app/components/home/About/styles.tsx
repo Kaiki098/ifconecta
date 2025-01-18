@@ -8,7 +8,6 @@ export const AboutContainer = styled.section`
   justify-content: space-around;
   align-items: center;
   gap: 2em;
-  padding: 8em 4em;
 `;
 
 export const AboutContent = styled.div`
@@ -40,6 +39,10 @@ export const AboutContent = styled.div`
 
   & p:first-of-type {
     margin-bottom: 5em;
+
+    @media (max-height: 700px) {
+      margin-bottom: 2em;
+    }
   }
 
   @media (max-width: 1240px) {
@@ -59,11 +62,13 @@ export const AboutContent = styled.div`
 
 export const BigLogoImage = styled(Image)`
   border-radius: 32px;
+  height: 100%;
+  max-width: auto;
 
-  @media (max-width: 1240px) {
-    width: 400px;
-    height: auto;
-  }
+  //@media (max-width: 1240px) {
+  // width: 400px;
+  //height: auto;
+  //}
 
   @media (max-width: 800px) {
     display: none;
