@@ -31,8 +31,8 @@ export const SubmissionHeader = styled.header`
     display: block;
     background-color: transparent;
     position: absolute;
-    right: 2em;
-    top: 2em;
+    right: 1em;
+    top: 1em;
 
     & h1 {
       display: none;

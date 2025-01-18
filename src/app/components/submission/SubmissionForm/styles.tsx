@@ -11,6 +11,10 @@ export const Form = styled.form`
     grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
   }
+
+  @media (max-height: 650px) {
+    align-items: center;
+  }
 `;
 
 export const Legend = styled.legend`
