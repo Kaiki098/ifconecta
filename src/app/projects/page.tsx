@@ -38,6 +38,8 @@ export default function ProjectsPage() {
   }
 
   useEffect(() => {
+    console.log("fetching projects");
+
     const fetchProjects = async () => {
       const authToken = getCookie("auth");
       if (!authToken) {
@@ -45,12 +47,13 @@ export default function ProjectsPage() {
         return;
       }
 
-      const cachedProjects = localStorage.getItem("projects");
-      if (cachedProjects) {
-        setProjects(JSON.parse(cachedProjects));
-        setLoading(false);
-        return;
-      }
+      //const cachedProjects = localStorage.getItem("projects");
+      //if (cachedProjects) {
+        //console.log("Projetos no cache",cachedProjects);
+        //setProjects(JSON.parse(cachedProjects));
+        //setLoading(false);
+        //return;
+      //}
 
       try {
         const response = await fetch(
@@ -67,8 +70,9 @@ export default function ProjectsPage() {
         const result = await response.json();
 
         if (result.success && result.data) {
+          console.log(result.data);
           setProjects(result.data);
-          localStorage.setItem("projects", JSON.stringify(result.data));
+          //localStorage.setItem("projects", JSON.stringify(result.data));
         } else {
           throw new Error(result.message);
         }
