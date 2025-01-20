@@ -134,6 +134,12 @@ export default function SubmissionForm() {
         reset();
       } else {
         throw new Error(result.message);
+        toast.update(toastId, {
+          render: "Erro ao enviar projeto. Tente novamente.",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
       }
     } catch (error) {
       console.error("Submission error:", error);
